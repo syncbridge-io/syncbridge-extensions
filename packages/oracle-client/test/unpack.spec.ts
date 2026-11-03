@@ -130,7 +130,8 @@ describe('unpackClient', () => {
       },
     );
     const result = JSON.parse(out.trim().split('\n').at(-1)!);
-    expect(result).toEqual({ unpacked: true, libaio: expect.any(Boolean) });
+    expect(result.unpacked).toBe(true);
+    expect(['boolean', 'string']).toContain(typeof result.libaio);
     expect(fs.existsSync(path.join(target, 'libclntsh.so'))).toBe(true);
   });
 });

@@ -9,10 +9,10 @@ import { clientZip, type ZipServer, zipServer } from './_support/zip-server.js';
 /** The plugin with the host's libaio played, a runner having none, and
  * Oracle's download played by a local server */
 class TestPlugin extends OracleClientPlugin {
-  libaio = true;
+  libaio: boolean | string = true;
   downloadUrl = '';
 
-  protected override _hasLibaio(): boolean {
+  protected override _findLibaio(): boolean | string {
     return this.libaio;
   }
 
@@ -146,6 +146,18 @@ describe('OracleClientPlugin', () => {
     expect(fs.existsSync(path.join(p.clientDirectory, 'libclntsh.so'))).toBe(
       true,
     );
+    expect(env.environments).toEqual([]);
+  });
+
+  it("should tell the admin the link to make when the host has Ubuntu 24.04's libaio.so.1t64 alone", async () => {
+    const p = plugin();
+    p.libaio = '/usr/lib/x86_64-linux-gnu/libaio.so.1t64';
+    await p.activate();
+    await waitFor(() => env.last()?.state === 'error');
+    expect(env.last()?.message).toContain(
+      '"sudo ln -s libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1"',
+    );
+    /* The plugin changes nothing of the system, nor gives an unloadable client */
     expect(env.environments).toEqual([]);
   });
 

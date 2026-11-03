@@ -28,7 +28,10 @@ registry, not to npm. The Marketplace does not list plugins.
 It needs a SyncBridge built on `@syncbridge/plugin-api` 2.2 or newer; that
 and `@syncbridge/common` are peer dependencies, provided by the engine.
 `libaio` belongs to the server - the Docker image carries it, the Linux
-package depends on it - and the plugin says so when it is missing.
+package depends on it - and the plugin says so when it is missing. On
+Ubuntu 24.04 and later it needs a `libaio.so.1` link, made once by the
+admin: see
+[libaio](https://github.com/syncbridge-io/syncbridge-extensions/tree/main/packages/oracle-client/docs/OracleClientPlugin/README.md#ubuntu-2404-and-later).
 
 ## Actions
 

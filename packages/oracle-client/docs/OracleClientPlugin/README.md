@@ -99,12 +99,31 @@ tells who ran what.
 
 ## libaio
 
-Instant Client links against `libaio`, which belongs to the server rather
-than to this plugin: SyncBridge's Docker image carries it, and its Linux
-package depends on it. On a host without it the plugin installs the client
-and then says that `libaio` is missing instead of giving the workers a client
-they cannot load - install `libaio1` (Debian, Ubuntu) or `libaio` (RHEL,
-Alma, Rocky) and restart the server.
+Instant Client links against `libaio.so.1`, which belongs to the server
+rather than to this plugin: SyncBridge's Docker image carries it, and its
+Linux package depends on it. On a host without it the plugin installs the
+client and then says that `libaio` is missing instead of giving the workers a
+client they cannot load - install `libaio1` (Debian, Ubuntu up to 22.04) or
+`libaio` (RHEL, Alma, Rocky) and restart the server.
+
+### Ubuntu 24.04 and later
+
+Ubuntu 24.04 replaced `libaio1` with `libaio1t64`, which installs the library
+as `libaio.so.1t64` alone. Instant Client does not find it under that name,
+so the plugin says so on its card and gives the workers nothing. Link it once
+under the name Instant Client asks for, as root:
+
+```bash
+# amd64
+sudo ln -s libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+# arm64
+sudo ln -s libaio.so.1t64 /usr/lib/aarch64-linux-gnu/libaio.so.1
+```
+
+Then restart SyncBridge: the plugin finds the link and gives the client to
+the workers. The plugin does not make the
+link itself: it changes nothing outside its own data directory, and the
+engine gives a plugin no right to.
 
 ## What it does not do
 

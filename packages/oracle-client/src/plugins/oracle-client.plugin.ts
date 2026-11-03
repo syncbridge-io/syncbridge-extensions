@@ -7,7 +7,7 @@ import { DefineVariable, PluginPermission } from '@syncbridge/common';
 import { Plugin, PluginBase, type PluginHost } from '@syncbridge/plugin-api';
 import { CLIENT_DIR, INSTALL_RECORD, SHARED_DIR } from '../constants.js';
 import { downloadUrlOf } from '../utils/download-url.js';
-import { hasLibaio, LIBAIO_MISSING } from '../utils/libaio.js';
+import { findLibaio, LIBAIO_MISSING, libaioT64Only } from '../utils/libaio.js';
 import { unpackClient } from '../utils/unpack.js';
 import { OracleClientSettings } from './oracle-client.variables.js';
 
@@ -175,8 +175,11 @@ export class OracleClientPlugin extends PluginBase<OracleClientSettings> {
 
   /** The client's directory to every worker, and the version on its card */
   protected _give(record: InstallRecord): void {
-    if (!this._hasLibaio()) {
-      this.host.status.set({ state: 'error', message: LIBAIO_MISSING });
+    const libaio = this._findLibaio();
+    if (libaio !== true) {
+      /* A client the workers cannot load is not given to them */
+      const message = libaio ? libaioT64Only(libaio) : LIBAIO_MISSING;
+      this.host.status.set({ state: 'error', message });
       return;
     }
     this._removeEnvironment?.();
@@ -190,9 +193,9 @@ export class OracleClientPlugin extends PluginBase<OracleClientSettings> {
     });
   }
 
-  /** The host's libaio, which a test plays without one */
-  protected _hasLibaio(): boolean {
-    return hasLibaio();
+  /** The host's libaio, which a test plays */
+  protected _findLibaio(): boolean | string {
+    return findLibaio();
   }
 
   /** Downloads and unpacks, one at a time; `source` for the file action */

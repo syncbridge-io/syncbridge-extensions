@@ -1,6 +1,6 @@
 {
   "name": "@syncbridge/kafka",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "SyncBridge Kafka connection components",
   "author": "Panates Technology AS <info@panates.com> (https://www.panates.com)",
   "homepage": "https://github.com/syncbridge-io/syncbridge-extensions/tree/main/packages/kafka#readme",

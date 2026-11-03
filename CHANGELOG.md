@@ -1,6 +1,14 @@
 # Changelog
 
-<!-- rman:documented-up-to 16840e8bfe4c1a6d3bae9e8ae33b04fae86168c0 -->
+<!-- rman:documented-up-to e407dbd51dfe30082288c1e7173b2d0a4d9830c6 -->
+
+## v2026.11.3-1541 (2026-11-03)
+
+### 🧹 Chores
+
+- @syncbridge/common 2.21.0, syncbuild 2.16.0, testing 2.6.0 and globals 17.14.0 for development (e407dbd)
+
+---
 
 ## v2026.10.31-2058 (2026-10-31)
 

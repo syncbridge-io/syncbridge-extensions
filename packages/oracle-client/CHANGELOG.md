@@ -1,6 +1,14 @@
 # Changelog
 
-<!-- rman:documented-up-to 8246c15502e46289901f5c343273687e602f530d -->
+<!-- rman:documented-up-to e407dbd51dfe30082288c1e7173b2d0a4d9830c6 -->
+
+## @syncbridge/oracle-client@1.1.3 (2026-11-03)
+
+### 🐛 Bug Fixes
+
+- **oracle-client:** a host with Ubuntu 24.04's libaio.so.1t64 alone is told the link to make (73fbbb0)
+
+---
 
 ## @syncbridge/oracle-client@1.1.1 (2026-10-30)
 

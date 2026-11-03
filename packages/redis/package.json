@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@syncbridge/builtins": "workspace:^",
-    "@syncbridge/testing": "^2.4.0",
+    "@syncbridge/testing": "^2.6.0",
     "expect": "^30.5.2"
   }
 }

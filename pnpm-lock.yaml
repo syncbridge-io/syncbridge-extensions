@@ -320,7 +320,7 @@ importers:
     dependencies:
       '@platformatic/kafka':
         specifier: '>=1.34.0 <3'
-        version: 2.14.0(supports-color@8.1.1)
+        version: 2.15.0(supports-color@8.1.1)
       '@syncbridge/common':
         specifier: ^2.18.0
         version: 2.22.0(@opra/common@1.33.0)
@@ -395,7 +395,7 @@ importers:
         version: 2.3.4
       '@pinggy/pinggy':
         specifier: '>=0.5.3 <0.6'
-        version: 0.5.3(supports-color@8.1.1)
+        version: 0.5.4(supports-color@8.1.1)
       '@syncbridge/common':
         specifier: ^2.18.0
         version: 2.22.0(@opra/common@1.33.0)
@@ -476,28 +476,28 @@ importers:
     dependencies:
       '@sqb/builder':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(supports-color@8.1.1)
+        version: 6.3.4(supports-color@8.1.1)
       '@sqb/connect':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
       '@sqb/mariadb':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mariadb-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mariadb@3.5.4)
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mariadb-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mariadb@3.5.5)
       '@sqb/mssql':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mssql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mssql@12.7.13(supports-color@8.1.1))
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mssql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mssql@12.7.14(supports-color@8.1.1))
       '@sqb/mysql':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mysql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mysql2@3.24.6(@types/node@26.6.6))
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mysql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mysql2@3.24.6(@types/node@26.6.6))
       '@sqb/oracle':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/oracle-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(oracledb@26.0.0)
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/oracle-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(oracledb@26.0.0)
       '@sqb/postgres':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/postgres-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(postgrejs@3.14.1)
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/postgres-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(postgrejs@3.15.1)
       '@sqb/sqlite':
         specifier: '>=6.3.1 <7'
-        version: 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/sqlite-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))
+        version: 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/sqlite-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))
       '@syncbridge/common':
         specifier: ^2.18.0
         version: 2.22.0(@opra/common@1.33.0)
@@ -506,10 +506,10 @@ importers:
         version: 4.1.3
       mariadb:
         specifier: '>=3.5.4 <4'
-        version: 3.5.4
+        version: 3.5.5
       mssql:
         specifier: '>=11.0.0 <13'
-        version: 12.7.13(supports-color@8.1.1)
+        version: 12.7.14(supports-color@8.1.1)
       mysql2:
         specifier: '>=3.24.6 <4'
         version: 3.24.6(@types/node@26.6.6)
@@ -518,7 +518,7 @@ importers:
         version: 26.0.0
       postgrejs:
         specifier: '>=3.8.0 <4'
-        version: 3.14.1
+        version: 3.15.1
       tslib:
         specifier: ^2.9.1
         version: 2.9.1
@@ -1231,8 +1231,8 @@ packages:
     resolution: {integrity: sha512-XETzSW6BXQbwA2bQAVn6Wf/xjmyo/B7lViWUuYa41ybzmxkj1NLXhPBTHqYWiyCaxhv4u8VqJmCHf7uF0nGAwA==}
     engines: {node: '>=18.0.0'}
 
-  '@pinggy/pinggy@0.5.3':
-    resolution: {integrity: sha512-4ztoxSMMhM2yOR1JjsGsaygbnMFhiYapxwKWPEXNi34lgnopzVl6nL0+doV/OBYxDqS9tqR3sFQrciJ+8YnnNQ==}
+  '@pinggy/pinggy@0.5.4':
+    resolution: {integrity: sha512-XUonM2mrCq1KsG8oz2v9I0fKngeW5BSczzd3SyJ6MfRmG/UfhDi02de65mqLepNg2E0LeGkkv02Jn+bGJ3Xf6w==}
     engines: {node: '>=18'}
 
   '@pkgr/core@0.3.6':
@@ -1243,8 +1243,8 @@ packages:
     resolution: {integrity: sha512-eCL++LyBjSsqalm4I67dl+gVqLSKd6gPYCieD72S5KqqAkmSAgAYNHt+lL+iVXssWPSfbuIJ5PEwpn5JVD73Xw==}
     engines: {node: '>= 22.19.0'}
 
-  '@platformatic/kafka@2.14.0':
-    resolution: {integrity: sha512-FvPnGuvxk3otCKQL515X1C2yMPAAjlmGEe9JQ2YiKCz0F90K+6zrWhExZ7DCBYIyPfo1O555hsI2D/R2MnmRUQ==}
+  '@platformatic/kafka@2.15.0':
+    resolution: {integrity: sha512-ROhJgOSxJxL9sTOAxDB0cn+VVxQ2LcN3scYR2Eh6Mnhp459a3xeXNHzycARDzvNWKgzHmEhwTga0oAM2v9NYIA==}
     engines: {node: '>= 22.22.0 || >= 24.6.0'}
 
   '@platformatic/wasm-utils@0.3.0':
@@ -1395,105 +1395,105 @@ packages:
   '@sinclair/typebox@0.34.52':
     resolution: {integrity: sha512-XiMQh7qqVlxZzcVD+kkGMNGMzcTrDMLWI7S4x7z1MkCkbDPrekpZXEUK0eZqZFMuHQg2a2DZOcDIh9o5v3Gonw==}
 
-  '@sqb/builder@6.3.1':
-    resolution: {integrity: sha512-qMVeLJNYA8YM0tyk/Rvx/7V27NAWMfAFX08Duv2ukJLkHntVmp5aEqTvDpaWEeGehBjtQLRayoEfx0QhIrxiNA==}
-    engines: {node: '>=20.0'}
+  '@sqb/builder@6.3.4':
+    resolution: {integrity: sha512-uGU/VdqiRza2mO+psJVcCE5hlWjG85omIOUVpSRBGhBm65DUMzH2hNnL9QhODDCE/l2oE37CHtV2mWor2bLwOg==}
+    engines: {node: '>=22'}
 
-  '@sqb/connect@6.3.1':
-    resolution: {integrity: sha512-+vfQaevTc2ZLeiHu31ScAt9orbJRXebOVnlfSAtfKuJkv3R4/aqDZg5jzXHTGDG8lLOEjgWf0JJ524yMOq+c9g==}
-    engines: {node: '>=20.0'}
+  '@sqb/connect@6.3.4':
+    resolution: {integrity: sha512-CUJgxrT8CfBxe2OySI+ziV+z7Hi2aSa4umsCFbzV4Z/QZ67L7Qor8IBPmLTh5IHhlkO/Jd3/NNdA0nw9XYjN8Q==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
       reflect-metadata: ^0.2.2
 
-  '@sqb/mariadb-dialect@6.3.1':
-    resolution: {integrity: sha512-myG7axlQf3qv0zyyINvTdPhbg76JJs5dyHdYhgwz9zTnJ3+6xa+kxhKXHBjinx0JyL/QnheHKpaXLgvcEnOYOw==}
-    engines: {node: '>=20.0'}
+  '@sqb/mariadb-dialect@6.3.4':
+    resolution: {integrity: sha512-nLS/S7894h9gSzCz5McBP1loV7yjd97Z4UBf9KUbxAl7YDdM8OkMQwLTtlAWyR8Kl17nwn+SMXcaeauqxaKxjA==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/mariadb@6.3.1':
-    resolution: {integrity: sha512-0IWOBTlKAyygavfxiYO7otwECBXBq7LFMMh077L1+eGUn4N+OTVe2BVTUhwpao9LowADgZgtjmJWs2pbxu5+Ig==}
-    engines: {node: '>=20.0'}
+  '@sqb/mariadb@6.3.4':
+    resolution: {integrity: sha512-3yFsTcdZGeasOhTqdavHd77SwZu4doeSalztwnYrG0KwuAyh+BLUUoH+oJjM6+GDWWkGD0bIFqmg7Qnaob7kbQ==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/mariadb-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/mariadb-dialect': ^6.3.4
       mariadb: ^3.5.4
 
-  '@sqb/mssql-dialect@6.3.1':
-    resolution: {integrity: sha512-kf3bP5RQnWTvFTr1jUOOtmorbPgayx4t5lwtYTWtR6Epnod3N8/60crThdt166LNBmed0Ei9qiy/znUX90Z9SA==}
-    engines: {node: '>=20.0'}
+  '@sqb/mssql-dialect@6.3.4':
+    resolution: {integrity: sha512-31TkDQAaMUh+Crz2uluDBzkhGpM3qw9CzbqguXb7YE0rB9oeUWNdMeSYHWJ2FpcrYeEYtSPLfaTlz+5sOuTEKg==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/mssql@6.3.1':
-    resolution: {integrity: sha512-PyBioHTzy1ZkmhBt2IwUGy2c9Yh76XJObEj2QmQzQyirWjyiuSD/OrxGfXqbNwK7gf33KZHaQN3uPwHOFVWcBA==}
-    engines: {node: '>=20.0'}
+  '@sqb/mssql@6.3.4':
+    resolution: {integrity: sha512-moWuUlN+3pHKI6bsW1C2RaEre70utGSRXcfAxCApLzxhC41E9qpPoBRXmvy+A5PPJQlUlBjmSnesz3ETEkSuPA==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/mssql-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/mssql-dialect': ^6.3.4
       mssql: ^11.0.0 || ^12.0.0
 
-  '@sqb/mysql-dialect@6.3.1':
-    resolution: {integrity: sha512-ePf/H+1vWZaeCRYiEVJb9s6tYrGKhYeMLZXDp7kQ2FoDnP5uf4LwBKkxSe5S8OXwwtKIelhGU8CFTgG3mYXbRw==}
-    engines: {node: '>=20.0'}
+  '@sqb/mysql-dialect@6.3.4':
+    resolution: {integrity: sha512-pfmAK0YXriqn7KIW0u+UYjMbQL2ndmYaqr8SLLrYwxG/003eMdd1X+qnZKAjYnxTsghaaXALfJzOKeHGIXRznQ==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/mysql@6.3.1':
-    resolution: {integrity: sha512-sLXd0U8iSOlD07TmGxaMVFkNMpapCAC9ASaLO19djjEfPt+F6G7PS4ZTmtwL9Pd7ECqw3uqTsLEur9W7pc+Njw==}
-    engines: {node: '>=20.0'}
+  '@sqb/mysql@6.3.4':
+    resolution: {integrity: sha512-A9ozxRzA8ULXkl9ULMvxNhOBYLRyJrCebq0k6R/p612Ry8SXcFrt6MqonZWk5UYEmdLY5ko+50PDyy3xcG4Xmw==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/mysql-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/mysql-dialect': ^6.3.4
       mysql2: ^3.24.6
 
-  '@sqb/oracle-dialect@6.3.1':
-    resolution: {integrity: sha512-oOSKd+ESl7PCsogyhYZ7XuEe7r3Kg8/5rNR8YjteKgxHAFdu5f6Xo50OjIRluIQvSt7oQtjFs9eU25FmrlviFg==}
-    engines: {node: '>=20.0'}
+  '@sqb/oracle-dialect@6.3.4':
+    resolution: {integrity: sha512-V+Sgip5MBZuG7NEpXAfMZco0cA3+aAe5Gg2Ple/Ik8UDwjVfQXSXS/v8kcd5CtX5Qc64CxlEsbAnSFSVL2kBQA==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/oracle@6.3.1':
-    resolution: {integrity: sha512-Oh0QsLVNkxQk2K7DUjZujdQxNB9Oxm7AplEf2T4xzyadkOXDent0SxJhKTdjm3qdKzTbn1TPIcmG82rc0t6LQg==}
-    engines: {node: '>=20.0'}
+  '@sqb/oracle@6.3.4':
+    resolution: {integrity: sha512-mwA9I4V+GeTNB8IPMQSjJt3x1KKgW4zOZMJKFZhLXlyfVBlgGMxtITMSy+LkGAOmQ41tdR1gtmPqtkKkg2MzIg==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/oracle-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/oracle-dialect': ^6.3.4
       oracledb: '>=6.4.0'
 
-  '@sqb/postgres-dialect@6.3.1':
-    resolution: {integrity: sha512-KnuZ3H7+6c279fMRYQVK8L3+w9JXa/IQzIuULZlucU8OEgYbT+eT0riA1366pJ08im9n0Dcj/HwV/nU/isM4SA==}
-    engines: {node: '>=20.0'}
+  '@sqb/postgres-dialect@6.3.4':
+    resolution: {integrity: sha512-+WvF2BvTDIf7BMjhjg3Ld03PO1SeIdRZTfSIIA3fww5gtpNN8NJkyxvkbhLPESOW1L5POG/LzAIDfc7H4zps4w==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/postgres@6.3.1':
-    resolution: {integrity: sha512-uqQpnu92nEpWuLEtLRcnVcI0fnTyjo0XTZKfkBsQhNNTEyObG1eiBnrXjKw1IgAqLDe4WEkHUGdeLNIwpbMNpg==}
-    engines: {node: '>=20.0'}
+  '@sqb/postgres@6.3.4':
+    resolution: {integrity: sha512-gTf71Z7aXzBakArf6IEv8A1xPbWhBK9D6E/2s1+ovtxLW0cuCFt/3g2yiKP8+ODK6pw8JIi894M750Of4jmILQ==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/postgres-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/postgres-dialect': ^6.3.4
       postgrejs: '>=3.8.0 <4'
 
-  '@sqb/sqlite-dialect@6.3.1':
-    resolution: {integrity: sha512-QH8J3WTo77v/yfXoSze/twdHTsUTqBIxc1TXZrXkoAKAIZiMrEGVEn6rzPbBLsyGF2W/AOEcRhuWIfZaK6PSCw==}
-    engines: {node: '>=20.0'}
+  '@sqb/sqlite-dialect@6.3.4':
+    resolution: {integrity: sha512-+d+rdxBHdqG2GzAvmW+3gk2sYu6Yl/OBslEOomJdhoUINgMGncuBPH+CXEyG2wUC6GRKoe8Ti9aDYqpEeqz1QQ==}
+    engines: {node: '>=22'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
+      '@sqb/builder': ^6.3.4
 
-  '@sqb/sqlite@6.3.1':
-    resolution: {integrity: sha512-VeONbhiqAe3CN4etrMALcP9CX/9fYV/MsuB/O1RsiqRHuKTB+gX3Q+q5ios927I7HW+UmrP4q2gdxNjRBQiRRg==}
+  '@sqb/sqlite@6.3.4':
+    resolution: {integrity: sha512-gx3zIoMlSyKR2jraa3YPojQhUfuBfzsurw8XhDGxsrOlnHzaT/wAO9gKLONP/+0YpHhCf8iVV9f6aaOaguFfDA==}
     engines: {node: '>=22.5.0'}
     peerDependencies:
-      '@sqb/builder': ^6.3.1
-      '@sqb/connect': ^6.3.1
-      '@sqb/sqlite-dialect': ^6.3.1
+      '@sqb/builder': ^6.3.4
+      '@sqb/connect': ^6.3.4
+      '@sqb/sqlite-dialect': ^6.3.4
 
   '@swc-node/core@1.15.0':
     resolution: {integrity: sha512-WAerrrl087WgenB92XG4Th2t0NQFfMNLYSe0sW2cEMMqM/LQmP4rozsDJl0vuzTrbewjpKQryxFXI+aYig/dBg==}
@@ -2658,6 +2658,10 @@ packages:
   lightning-pool@4.14.0:
     resolution: {integrity: sha512-zdL5wmVeEhSW80Xo7Te37SrxqtGnkH+MJ4Trzxf1XuzSHYQSJuuIvYTeeR43ZgsEc+VFDHD+R/GX5Ib44nExBQ==}
 
+  lightning-pool@4.14.2:
+    resolution: {integrity: sha512-823LYh8/lSNdzQU4vcR9h5rQaTkNLkgWT6uQ3vgGD127VDdERfdd5JAV2agyfJhrtDj0C+6uuJ/86O2w1DHF/A==}
+    engines: {node: '>=22'}
+
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
@@ -2708,8 +2712,8 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
 
-  mariadb@3.5.4:
-    resolution: {integrity: sha512-3m0vdfgRkjle5/9hHl4R7rlVvnDA7QfuFSNkdIAQNROWKOS0J3b9IQK9HaZSCGEVKiDUbFXFiINfC+cmR5P/aA==}
+  mariadb@3.5.5:
+    resolution: {integrity: sha512-xvR622+h/ANbFvbi5SCkGnJWAFG2pGCUdSyISXXU3ObJ+P2X8KqdF8goCXquCD/lKnmqDeWfgTt1YY7dDI5i2Q==}
     engines: {node: '>= 20.0.0'}
 
   markdown-table@3.0.4:
@@ -2877,8 +2881,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mssql@12.7.13:
-    resolution: {integrity: sha512-RwNhOEU1A7vCbKmkZapbfLk31fKFByrEnK2eDPIw/rlloLUxNhuCcWj4CmXvyHiyjIjI0TMZWid20PAGoRX4xA==}
+  mssql@12.7.14:
+    resolution: {integrity: sha512-X7Pxsf85LyJm+OWH3TdGAJuq5T9mkXsRdVOkxg5jgC4zKGLUCCwrnimPI7Xg0F84gJv1un2xvnsqYzQ63SlbWA==}
     engines: {node: '>=18.19.0'}
     hasBin: true
 
@@ -3025,9 +3029,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  postgrejs@3.14.1:
-    resolution: {integrity: sha512-UETatQO7G7Uwo07I4/UlwPGbf/K40s8tozIRJep9EmQC1rfu541HjhyDJIuio0j+b7ZSLAYncgET8pERHE0BHQ==}
-    engines: {node: '>=20.0'}
+  postgrejs@3.15.1:
+    resolution: {integrity: sha512-ix769DDm/MIFNF26wpDC8tYYE5rHk//9BDd/4zXWKJT/fmIpdHbqPDJhxLD4lGSxZrVq2szD89SaA3iFMBsqKA==}
+    engines: {node: '>=22.0'}
 
   power-tasks@1.14.2:
     resolution: {integrity: sha512-xHL3G9DiUEG6oi0oKVLF2uSnqU70E0yIPe/6vLspyAcOO15PX2KY//S1UFTVhNfuiRRayvIVgGcu0ixHlc1tkg==}
@@ -3495,19 +3499,19 @@ snapshots:
       '@azure/core-rest-pipeline': 1.25.0(supports-color@8.1.1)
       '@azure/core-tracing': 1.4.0
       '@typespec/ts-http-runtime': 0.3.9(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
   '@azure/abort-controller@2.2.0':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@azure/core-auth@1.11.0(supports-color@8.1.1)':
     dependencies:
       '@azure/abort-controller': 2.2.0
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3519,7 +3523,7 @@ snapshots:
       '@azure/core-tracing': 1.4.0
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
       '@azure/logger': 1.4.0(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3528,13 +3532,13 @@ snapshots:
       '@azure/abort-controller': 2.2.0
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
       '@azure/logger': 1.4.0(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
   '@azure/core-paging@1.7.0':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@azure/core-process@1.0.0': {}
 
@@ -3546,19 +3550,19 @@ snapshots:
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
       '@azure/logger': 1.4.0(supports-color@8.1.1)
       '@typespec/ts-http-runtime': 0.3.9(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
   '@azure/core-tracing@1.4.0':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@azure/core-util@1.14.0(supports-color@8.1.1)':
     dependencies:
       '@azure/abort-controller': 2.2.0
       '@typespec/ts-http-runtime': 0.3.9(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3575,7 +3579,7 @@ snapshots:
       '@azure/msal-browser': 5.27.0
       '@azure/msal-node': 6.0.1
       open: 11.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3588,7 +3592,7 @@ snapshots:
       '@azure/core-tracing': 1.4.0
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
       '@azure/logger': 1.4.0(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3604,14 +3608,14 @@ snapshots:
       '@azure/core-util': 1.14.0(supports-color@8.1.1)
       '@azure/keyvault-common': 2.1.0(supports-color@8.1.1)
       '@azure/logger': 1.4.0(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
   '@azure/logger@1.4.0(supports-color@8.1.1)':
     dependencies:
       '@typespec/ts-http-runtime': 0.3.9(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3837,7 +3841,7 @@ snapshots:
       https-proxy-agent: 7.0.6(supports-color@8.1.1)
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.8.5
+      semver: 7.8.6
       tar: 7.5.22
     transitivePeerDependencies:
       - encoding
@@ -3904,31 +3908,44 @@ snapshots:
       '@ngrok/ngrok-win32-ia32-msvc': 1.7.0
       '@ngrok/ngrok-win32-x64-msvc': 1.7.0
 
-  '@node-rs/crc32-android-arm-eabi@1.10.8': {}
+  '@node-rs/crc32-android-arm-eabi@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-android-arm64@1.10.8': {}
+  '@node-rs/crc32-android-arm64@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-darwin-arm64@1.10.8': {}
+  '@node-rs/crc32-darwin-arm64@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-darwin-x64@1.10.8': {}
+  '@node-rs/crc32-darwin-x64@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-freebsd-x64@1.10.8': {}
+  '@node-rs/crc32-freebsd-x64@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-linux-arm-gnueabihf@1.10.8': {}
+  '@node-rs/crc32-linux-arm-gnueabihf@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-linux-arm64-gnu@1.10.8': {}
+  '@node-rs/crc32-linux-arm64-gnu@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-linux-arm64-musl@1.10.8': {}
+  '@node-rs/crc32-linux-arm64-musl@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-linux-x64-gnu@1.10.8': {}
+  '@node-rs/crc32-linux-x64-gnu@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-linux-x64-musl@1.10.8': {}
+  '@node-rs/crc32-linux-x64-musl@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-win32-arm64-msvc@1.10.8': {}
+  '@node-rs/crc32-win32-arm64-msvc@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-win32-ia32-msvc@1.10.8': {}
+  '@node-rs/crc32-win32-ia32-msvc@1.10.8':
+    optional: true
 
-  '@node-rs/crc32-win32-x64-msvc@1.10.8': {}
+  '@node-rs/crc32-win32-x64-msvc@1.10.8':
+    optional: true
 
   '@node-rs/crc32@1.10.8':
     optionalDependencies:
@@ -3945,6 +3962,7 @@ snapshots:
       '@node-rs/crc32-win32-arm64-msvc': 1.10.8
       '@node-rs/crc32-win32-ia32-msvc': 1.10.8
       '@node-rs/crc32-win32-x64-msvc': 1.10.8
+    optional: true
 
   '@node-rs/xxhash-android-arm-eabi@1.7.8':
     optional: true
@@ -4155,7 +4173,7 @@ snapshots:
 
   '@panates/tsconfig@2.1.8': {}
 
-  '@pinggy/pinggy@0.5.3(supports-color@8.1.1)':
+  '@pinggy/pinggy@0.5.4(supports-color@8.1.1)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.3(supports-color@8.1.1)
       node-gyp: 12.4.0
@@ -4168,7 +4186,7 @@ snapshots:
 
   '@platformatic/dynamic-buffer@0.4.0': {}
 
-  '@platformatic/kafka@2.14.0(supports-color@8.1.1)':
+  '@platformatic/kafka@2.15.0(supports-color@8.1.1)':
     dependencies:
       '@platformatic/dynamic-buffer': 0.4.0
       '@platformatic/wasm-utils': 0.3.0
@@ -4287,7 +4305,7 @@ snapshots:
 
   '@sinclair/typebox@0.34.52': {}
 
-  '@sqb/builder@6.3.1(supports-color@8.1.1)':
+  '@sqb/builder@6.3.4(supports-color@8.1.1)':
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
       fast-tokenizer: 1.10.1
@@ -4299,10 +4317,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)':
+  '@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)':
     dependencies:
       '@jsopen/objects': 2.3.4
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       debug: 4.4.3(supports-color@8.1.1)
       doublylinked: 2.5.6
       fast-tokenizer: 1.10.1
@@ -4320,85 +4338,85 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@sqb/mariadb-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/mariadb-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/mariadb@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mariadb-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mariadb@3.5.4)':
+  '@sqb/mariadb@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mariadb-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mariadb@3.5.5)':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/mariadb-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
-      mariadb: 3.5.4
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/mariadb-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
+      mariadb: 3.5.5
       tslib: 2.9.1
 
-  '@sqb/mssql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/mssql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/mssql@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mssql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mssql@12.7.13(supports-color@8.1.1))':
+  '@sqb/mssql@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mssql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mssql@12.7.14(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/mssql-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/mssql-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
       fast-tokenizer: 1.10.1
-      mssql: 12.7.13(supports-color@8.1.1)
+      mssql: 12.7.14(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/mysql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/mysql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/mysql@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mysql-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(mysql2@3.24.6(@types/node@26.6.6))':
+  '@sqb/mysql@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/mysql-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(mysql2@3.24.6(@types/node@26.6.6))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/mysql-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/mysql-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
       mysql2: 3.24.6(@types/node@26.6.6)
       tslib: 2.9.1
 
-  '@sqb/oracle-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/oracle-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
       valgen: 7.0.7
 
-  '@sqb/oracle@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/oracle-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(oracledb@26.0.0)':
+  '@sqb/oracle@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/oracle-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(oracledb@26.0.0)':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/oracle-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/oracle-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
       oracledb: 26.0.0
       tslib: 2.9.1
 
-  '@sqb/postgres-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/postgres-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/postgres@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/postgres-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))(postgrejs@3.14.1)':
+  '@sqb/postgres@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/postgres-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))(postgrejs@3.15.1)':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/postgres-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/postgres-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
       fast-tokenizer: 1.10.1
-      postgrejs: 3.14.1
+      postgrejs: 3.15.1
       putil-promisify: 1.10.1
       tslib: 2.9.1
 
-  '@sqb/sqlite-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))':
+  '@sqb/sqlite-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
       tslib: 2.9.1
 
-  '@sqb/sqlite@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(@sqb/connect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/sqlite-dialect@6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1)))':
+  '@sqb/sqlite@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(@sqb/connect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/sqlite-dialect@6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1)))':
     dependencies:
-      '@sqb/builder': 6.3.1(supports-color@8.1.1)
-      '@sqb/connect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
-      '@sqb/sqlite-dialect': 6.3.1(@sqb/builder@6.3.1(supports-color@8.1.1))
+      '@sqb/builder': 6.3.4(supports-color@8.1.1)
+      '@sqb/connect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1)
+      '@sqb/sqlite-dialect': 6.3.4(@sqb/builder@6.3.4(supports-color@8.1.1))
       tslib: 2.9.1
 
   '@swc-node/core@1.15.0(@swc/core@1.16.22(@swc/helpers@0.5.24))(@swc/types@0.1.28)':
@@ -4707,7 +4725,7 @@ snapshots:
     dependencies:
       http-proxy-agent: 7.0.2(supports-color@8.1.1)
       https-proxy-agent: 7.0.6(supports-color@8.1.1)
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
 
@@ -5496,7 +5514,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.8.5
+      semver: 7.8.6
 
   jwa@2.0.1:
     dependencies:
@@ -5519,6 +5537,12 @@ snapshots:
       type-check: 0.4.0
 
   lightning-pool@4.14.0:
+    dependencies:
+      doublylinked: 2.5.6
+      putil-promisify: 1.10.1
+      tslib: 2.9.1
+
+  lightning-pool@4.14.2:
     dependencies:
       doublylinked: 2.5.6
       putil-promisify: 1.10.1
@@ -5561,7 +5585,7 @@ snapshots:
     dependencies:
       semver: 7.8.5
 
-  mariadb@3.5.4:
+  mariadb@3.5.5:
     dependencies:
       '@types/geojson': 7946.0.16
       '@types/node': 26.6.6
@@ -5922,7 +5946,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mssql@12.7.13(supports-color@8.1.1):
+  mssql@12.7.14(supports-color@8.1.1):
     dependencies:
       '@tediousjs/connection-string': 1.1.0
       commander: 11.1.0
@@ -5973,7 +5997,7 @@ snapshots:
       graceful-fs: 4.2.11
       nopt: 9.0.0
       proc-log: 6.1.0
-      semver: 7.8.5
+      semver: 7.8.6
       tar: 7.5.22
       tinyglobby: 0.2.17
       undici: 6.29.1
@@ -6110,12 +6134,12 @@ snapshots:
       '@pnpm/exe.win32-arm64': 12.16.1
       '@pnpm/exe.win32-x64': 12.16.1
 
-  postgrejs@3.14.1:
+  postgrejs@3.15.1:
     dependencies:
       '@jsopen/objects': 2.3.4
       doublylinked: 2.5.6
       flexy-buffer: 1.1.2
-      lightning-pool: 4.14.0
+      lightning-pool: 4.14.2
       power-tasks: 1.14.2
       putil-promisify: 1.10.1
       putil-varhelpers: 1.7.0
@@ -6155,6 +6179,7 @@ snapshots:
   protobufjs@8.8.1:
     dependencies:
       long: 5.3.2
+    optional: true
 
   punycode@2.3.1: {}
 

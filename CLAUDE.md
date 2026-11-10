@@ -37,9 +37,11 @@ at `/Users/ehanoglu/dev/syncbridge/syncbridge`. Claude sessions work on them:
 - `packages/<name>/test`: mocha tests (`*.spec.ts`).
 - Root: pnpm workspaces (`pnpm-workspace.yaml`), `rman`
   (`@panates/rman-preset`) for build, lint,
-  check, versions and changelogs - a root devDependency, `>= 2.39`: an older
-  rman does not read `pnpm-workspace.yaml`, finds no packages and succeeds
-  over none, and `pnpm build` then runs itself without end; `tsconfig-base.json`,
+  check, versions and changelogs - installed globally, not a dependency (CI
+  installs it with `panates/gh-setup-node`'s `rman-version`). It must be
+  `>= 2.43`: an older rman does not read `pnpm-workspace.yaml` (< 2.39) and
+  `pnpm build` then runs itself without end, and `rman deps` misses an
+  in-range release the lockfile lags behind (< 2.43); `tsconfig-base.json`,
   `tsconfig-build.json`, `tsconfig-test.json`, `.mocharc.cjs`.
 - Modules depend on each other as **registry dependencies**, in the
   manifest's `dependencies` (`syncbridge-manifest.json`, written by
@@ -125,7 +127,8 @@ its own (CI's `rman build` does): `pnpm build` is what catches that.
   `feat` is a minor release of that module, a `fix` a patch, `!` major.
 - **Push:** ask before every `git push`; push with `--follow-tags`.
   Before pushing, run `rman deps`. When it lists newer versions, upgrade
-  the manifests with `rman deps -u`, run `pnpm install`, and run the
+  with `rman deps -u` (manifests, and in-range releases into the lockfile),
+  run `pnpm install`, and run the
   definition of done again; commit the upgrade as `chore: ...` before the push.
 - **Secrets:** never print a token, key or password, never commit one.
   This repository is public.
@@ -187,7 +190,7 @@ install, a short example, link to its docs.
   the fix goes out as the next version.
 - **The modules are published to the SyncBridge registry, not to npm**: its
   `spm` publish target is set in `.rmanrc.yml` (`publish.target: [spm]`,
-  rman >= 2.32.0 and `@syncbridge/syncbuild` >= 2.2.0 as the root
+  rman >= 2.32.0, and `@syncbridge/syncbuild` >= 2.2.0 as the root
   devDependency). `rman publish` asks the registry (`spm view`) which version
   a module lacks and publishes it with the repository's own `spm`; in GitHub
   Actions spm publishes as the job with its OIDC token, no secret, so the job

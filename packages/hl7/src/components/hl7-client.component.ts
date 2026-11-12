@@ -30,6 +30,10 @@ export class HL7ClientComponent<
   @Component.UseVariables()
   declare values: HL7ClientVariables;
 
+  protected get _glanceText(): string | undefined {
+    return `${this.values.host || '127.0.0.1'}:${this.values.port}`;
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     this.values.reconnect = this.values.reconnect || {};

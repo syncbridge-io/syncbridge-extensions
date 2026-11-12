@@ -1,6 +1,11 @@
 import { Buffer } from 'node:buffer';
 import type { AddressInfo } from 'node:net';
-import { peerOf } from '@syncbridge/builtins';
+import {
+  formatCount,
+  peerOf,
+  PerMinute,
+  renewWhileRunning,
+} from '@syncbridge/builtins';
 import {
   Component,
   ComponentBase,
@@ -66,6 +71,10 @@ export class HL7EndpointComponent<
   /* Since the worker started: a dashboard keeps nothing over a restart */
   protected _errors!: number;
   protected _received!: Map<string, number>;
+  /* The last minute's messages and errors, and the last message that was
+   * not an acknowledgment: its activity line */
+  protected _perMinute!: Record<'in' | 'out' | 'errors', PerMinute>;
+  protected _lastType?: string;
 
   /** Whether a peer is connected: the server for the client, any device for the server */
   get connected(): boolean {
@@ -86,11 +95,32 @@ export class HL7EndpointComponent<
     await super._init();
     this._errors = 0;
     this._received = new Map();
+    this._perMinute = {
+      in: new PerMinute(),
+      out: new PerMinute(),
+      errors: new PerMinute(),
+    };
+    renewWhileRunning(
+      this,
+      () => {
+        this.setGlance(this._glanceText);
+        this._renewActivity();
+      },
+      () => {
+        this.setActivity(undefined);
+        for (const rate of Object.values(this._perMinute)) rate.clear();
+        this._lastType = undefined;
+      },
+    );
     /* A component made outside an app factory has no channels nor dashboards */
     this.messages?.errors.set(0);
     this.on('message', (message, info) => this._show('in', message, info));
     this.on('send', (message, info) => this._show('out', message, info));
-    this.on('error', () => this.messages?.errors.set(++this._errors));
+    this.on('error', () => {
+      this.messages?.errors.set(++this._errors);
+      this._perMinute.errors.add();
+      this._renewActivity();
+    });
     this.on('data', (data, info) => {
       this.communicationLog?.write({
         direction: 'in',
@@ -118,8 +148,11 @@ export class HL7EndpointComponent<
     message: HL7Message,
     info?: AddressInfo,
   ): void {
-    if (!this.messages) return;
     const type = message.messageType || '?';
+    this._perMinute[direction].add();
+    if (!type.startsWith('ACK')) this._lastType = type;
+    this._renewActivity();
+    if (!this.messages) return;
     this.messages.rate.count(direction === 'in' ? 'received' : 'sent');
     if (direction === 'in') {
       const n = (this._received.get(type) || 0) + 1;
@@ -133,6 +166,33 @@ export class HL7EndpointComponent<
       ack: String(message.get('MSA-1') ?? ''),
       peer: peerOf(info) || '',
     });
+  }
+
+  /** What its glance shows: where it connects or listens */
+  protected get _glanceText(): string | undefined {
+    return undefined;
+  }
+
+  /** What comes first on its activity line: a server's connections */
+  protected get _activityLead(): string | undefined {
+    return undefined;
+  }
+
+  /** Messages of the last minute each way, the last one, and errors */
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    const errors = this._perMinute.errors.value;
+    const parts = [
+      this._activityLead,
+      `↓ ${formatCount(this._perMinute.in.value)} ` +
+        `↑ ${formatCount(this._perMinute.out.value)} msg/min`,
+      this._lastType && `last ${this._lastType}`,
+      errors && `${formatCount(errors)} ${errors === 1 ? 'error' : 'errors'}`,
+    ];
+    this.setActivity(
+      parts.filter(Boolean).join(' · '),
+      errors ? 'warning' : undefined,
+    );
   }
 
   /** Gives a newly created client or server the handlers and hooks added so far */

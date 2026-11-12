@@ -42,6 +42,15 @@ export class HL7ServerComponent<
     return this.server;
   }
 
+  protected get _glanceText(): string | undefined {
+    return `${this.values.bindInterface || '0.0.0.0'}:${this.values.port}`;
+  }
+
+  protected get _activityLead(): string | undefined {
+    const n = this.server?.connections ?? 0;
+    return `${n} ${n === 1 ? 'client' : 'clients'}`;
+  }
+
   protected async _start(abortSignal: AbortSignal): Promise<void> {
     this._stopping = false;
     this._createServer();
@@ -113,6 +122,7 @@ export class HL7ServerComponent<
         details: peerOf(info),
       });
       this.emit('connection', info, socket);
+      this._renewActivity();
     });
 
     this.server.on('disconnect', (socket: HL7Socket) => {
@@ -131,6 +141,7 @@ export class HL7ServerComponent<
         details: peerOf(info),
       });
       this.emit('disconnect', info, socket);
+      this._renewActivity();
     });
     this.server.on('message', (message, socket: HL7Socket) => {
       this.logger?.trace(

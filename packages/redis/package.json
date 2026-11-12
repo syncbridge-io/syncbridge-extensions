@@ -1,6 +1,6 @@
 {
   "name": "@syncbridge/redis",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "SyncBridge Redis component",
   "author": "Panates Technology AS <info@panates.com> (https://www.panates.com)",
   "homepage": "https://github.com/syncbridge-io/syncbridge-extensions/tree/main/packages/redis#readme",

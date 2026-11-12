@@ -1,7 +1,15 @@
 # Changelog
 
 
-<!-- rman:documented-up-to 16840e8bfe4c1a6d3bae9e8ae33b04fae86168c0 -->
+<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+
+## @syncbridge/hl7@2.3.0 (2026-11-12)
+
+### ✨ Features
+
+- **hl7:** glance and activity lines: where it connects or listens, its messages of the last minute, the last one and its errors (ccb3c31)
+
+---
 
 ## @syncbridge/hl7@2.2.0 (2026-10-31)
 

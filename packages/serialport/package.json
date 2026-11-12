@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "@serialport/bindings-interface": ">=1.2.2 <2",
-    "@syncbridge/common": "^2.18.0",
+    "@syncbridge/common": "^2.24.0",
     "ansi-colors": ">=4.1.3 <5",
     "putil-varhelpers": ">=1.7.0 <2",
     "reconnect-core": ">=1.3.0 <2",

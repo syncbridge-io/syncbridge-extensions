@@ -28,6 +28,15 @@ export class RedisSentinelComponent<
     return this._client;
   }
 
+  /** The master it asks the sentinels for, and how many they are */
+  protected get _glanceText(): string | undefined {
+    const n = this.values.sentinels?.length ?? 0;
+    return (
+      `${this.values.name} · ${n} ${n === 1 ? 'sentinel' : 'sentinels'}` +
+      (this.values.db ? ` · db ${this.values.db}` : '')
+    );
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     const options: CommonRedisOptions & SentinelConnectionOptions = omit(
@@ -40,6 +49,7 @@ export class RedisSentinelComponent<
     if (options.enableTLSForSentinelMode)
       options.sentinelTLS = this.values.sentinelTls;
     this._client = new ioredis.Redis(options);
+    this._watchClient(this._client);
     this._client.on('error', err => this.logger?.error(err));
     this._client.on('close', (err?: Error) => {
       if (!this._stopping) {

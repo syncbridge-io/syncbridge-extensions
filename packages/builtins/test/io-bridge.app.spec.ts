@@ -6,6 +6,10 @@ import { IOBridgeApp, TcpClientComponent } from '../src/index.js';
 
 /** A peer that keeps what is written to it */
 class Peer extends EventEmitter {
+  constructor(readonly name: string) {
+    super();
+  }
+  glance?: { text: string };
   written: Buffer[] = [];
   connected = true;
   write(data: Buffer) {
@@ -17,8 +21,9 @@ class Peer extends EventEmitter {
 /** The app without an engine: _init reads its two peers alone */
 async function createApp() {
   const app: any = Object.create(IOBridgeApp.prototype);
-  app.peer1 = new Peer();
-  app.peer2 = new Peer();
+  app._context = { status: 'started' };
+  app.peer1 = new Peer('peer1');
+  app.peer2 = new Peer('peer2');
   app.components = {};
   const errors: Error[] = [];
   app.on('error', (e: Error) => errors.push(e));
@@ -42,6 +47,33 @@ describe('IOBridgeApp', () => {
     expect(errors.map(e => e.message)).toEqual([
       'Failed to write data to peer2: not connected',
     ]);
+  });
+});
+
+describe('IOBridgeApp lines', () => {
+  it("should show its peers' glances side by side", async () => {
+    const { app } = await createApp();
+    expect(app.glance).toEqual({ text: 'peer1 ↔ peer2' });
+    app.peer1.glance = { text: '/dev/ttyUSB0 9600 8N1' };
+    app.peer2.glance = { text: '10.0.0.5:4000' };
+    app.emit('component-line-change', app.peer1, 'glance', app.peer1.glance);
+    expect(app.glance).toEqual({
+      text: '/dev/ttyUSB0 9600 8N1 ↔ 10.0.0.5:4000',
+    });
+  });
+
+  it('should show what it passed on each way, and what it dropped', async () => {
+    const { app, peer1, peer2 } = await createApp();
+    app.on('error', () => undefined);
+    peer1.emit('data', Buffer.from('to 2'));
+    peer2.emit('data', Buffer.from('1'));
+    expect(app.activity).toEqual({ text: '→ 4 B ← 1 B /min' });
+    peer2.connected = false;
+    peer1.emit('data', Buffer.from('lost'));
+    expect(app.activity).toEqual({
+      text: '→ 4 B ← 1 B /min · dropped 4 B',
+      tone: 'warning',
+    });
   });
 });
 

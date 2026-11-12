@@ -1,6 +1,6 @@
 {
   "name": "@syncbridge/ngrok",
   "dependencies": {
-    "@syncbridge/builtins": "^2.0.1"
+    "@syncbridge/builtins": "workspace:^"
   }
 }

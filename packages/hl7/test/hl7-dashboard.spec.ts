@@ -64,4 +64,23 @@ describe('HL7 dashboard', () => {
     });
     expect(env.dashboardIssues(app)).toEqual({});
   });
+
+  it('should show where it listens, and its messages of the last minute', async () => {
+    const app = await env.start(HL7ReceiverApp, {
+      components: { receiver: { values: { port: 2575 } } },
+    });
+    expect(app.receiver.glance).toEqual({ text: '0.0.0.0:2575' });
+    const conn = await env.connect(app, 'receiver', { framing: 'mllp' });
+    await conn.request(ORU);
+    await conn.request(ADT);
+    /* The acknowledgments are counted, but the last is what was handled */
+    expect(app.receiver.activity).toEqual({
+      text: '1 client · ↓ 2 ↑ 2 msg/min · last ADT^A01',
+    });
+    app.receiver.emit('error', new Error('bad frame'));
+    expect(app.receiver.activity).toEqual({
+      text: '1 client · ↓ 2 ↑ 2 msg/min · last ADT^A01 · 1 error',
+      tone: 'warning',
+    });
+  });
 });

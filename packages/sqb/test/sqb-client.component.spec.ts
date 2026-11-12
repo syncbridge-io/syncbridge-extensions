@@ -5,6 +5,8 @@ function createComponent(values: object) {
   const component: any = Object.create(SqbClientComponent.prototype);
   component.values = { pool: {}, ...values };
   component.components = {};
+  /* Its state as the engine keeps it; never started here */
+  component._context = { status: 'stopped' };
   component.queriesLog = { write: () => undefined };
   // A bare instance has no runtime state for the liveness timer to read
   component._resetLiveness = () => undefined;

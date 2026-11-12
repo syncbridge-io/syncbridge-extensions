@@ -38,4 +38,23 @@ describe('SqbClient dashboard', () => {
     });
     expect(env.dashboardIssues(app)).toEqual({});
   });
+
+  it('should show its database, its pool and its queries of the last minute', async () => {
+    const app = await env.start(RecordsApp, {
+      components: {
+        db: {
+          values: { dialect: 'sqlite', database: ':memory:', pool: { max: 4 } },
+        },
+      },
+    });
+    expect(app.db.glance).toEqual({ text: 'sqlite · :memory:' });
+    const client = app.db.getClient();
+    await client.execute('select 1 as one');
+    expect(app.db.activity).toEqual({ text: 'pool 0/4 · 1 queries/min' });
+    await expect(client.execute('select * from missing')).rejects.toThrow();
+    expect(app.db.activity).toEqual({
+      text: 'pool 0/4 · 2 queries/min · 1 error',
+      tone: 'warning',
+    });
+  });
 });

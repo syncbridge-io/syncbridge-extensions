@@ -8,6 +8,8 @@ describe('HttpServerComponent', () => {
     const component: any = Object.create(HttpServerComponent.prototype);
     component.values = { port: 0 };
     component.components = {};
+    /* Its state as the engine keeps it; _start called alone leaves it stopped */
+    component._context = { status: 'stopped' };
     const records: any[] = [];
     component.communicationLog = { write: (r: any) => records.push(r) };
     await component._init();

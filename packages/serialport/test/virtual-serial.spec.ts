@@ -34,6 +34,7 @@ describe('virtual serial port', () => {
     const conn = await device.connection();
     expect((await conn.request('ping')).toString()).toBe('PING');
     expect(app.received).toEqual(['ping']);
+    expect(app.line.activity).toEqual({ text: '↓ 4 B ↑ 4 B /min' });
   });
 
   it('should frame messages as asked', async () => {
@@ -84,6 +85,7 @@ describe('virtual serial port', () => {
         },
       },
     });
+    expect(app.line.glance).toEqual({ text: `${PORT} 19200 7N2` });
     const settings = (app.line as any)._serialPort.settings;
     expect(settings).toMatchObject({
       baudRate: 19200,

@@ -43,6 +43,14 @@ export class SerialClientComponent<
     return this.values.port || undefined;
   }
 
+  /** The port and its framing, as a serial line is written: `9600 8N1` */
+  protected get _glanceText(): string | undefined {
+    const { port, baudRate, dataBits, parity, stopBits } = this.values;
+    if (!port) return;
+    const p = (parity || 'none')[0].toUpperCase();
+    return `${port} ${baudRate} ${dataBits || 8}${p}${stopBits || 1}`;
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     this.on('values-updated', () =>

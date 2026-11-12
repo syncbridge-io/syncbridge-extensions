@@ -27,6 +27,11 @@ export class RedisStandaloneComponent<
     return this._client;
   }
 
+  protected get _glanceText(): string | undefined {
+    const { host, port, db } = this.values;
+    return `${host || '127.0.0.1'}:${port || 6379}` + (db ? ` db ${db}` : '');
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     const options: ioredis.RedisOptions = omit(this.values, [
@@ -35,6 +40,7 @@ export class RedisStandaloneComponent<
     ]);
     if (this.values.tls_enabled) options.tls = this.values.tls ?? {};
     this._client = new ioredis.Redis({ ...options, lazyConnect: true });
+    this._watchClient(this._client);
     this._client.on('error', err => this.logger?.error(err));
     this._client.on('close', (err?: Error) => {
       if (!this._stopping) {

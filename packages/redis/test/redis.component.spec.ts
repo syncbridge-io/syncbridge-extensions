@@ -6,6 +6,7 @@ describe('RedisComponent', () => {
     const component: any = Object.create(RedisComponent.prototype);
     component.values = {};
     component.components = {};
+    component._context = { status: 'stopped' };
     const records: any[] = [];
     component.communicationLog = { write: (r: any) => records.push(r) };
     await component._init();

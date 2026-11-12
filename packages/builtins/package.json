@@ -1,6 +1,6 @@
 {
   "name": "@syncbridge/builtins",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "SyncBridge builtin extensions",
   "author": "Panates Technology AS <info@panates.com> (https://www.panates.com)",
   "homepage": "https://github.com/syncbridge-io/syncbridge-extensions/tree/main/packages/builtins#readme",

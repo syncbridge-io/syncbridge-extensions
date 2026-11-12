@@ -1,7 +1,15 @@
 # Changelog
 
 
-<!-- rman:documented-up-to 16840e8bfe4c1a6d3bae9e8ae33b04fae86168c0 -->
+<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+
+## @syncbridge/builtins@2.3.0 (2026-11-12)
+
+### ✨ Features
+
+- **builtins:** glance and activity lines for the IO components and IOBridge, and a per-minute counter for other modules (4c66ace)
+
+---
 
 ## @syncbridge/builtins@2.2.0 (2026-10-31)
 

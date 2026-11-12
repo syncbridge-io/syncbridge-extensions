@@ -1,7 +1,15 @@
 # Changelog
 
 
-<!-- rman:documented-up-to 16840e8bfe4c1a6d3bae9e8ae33b04fae86168c0 -->
+<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+
+## @syncbridge/ngrok@2.2.0 (2026-11-12)
+
+### ✨ Features
+
+- **ngrok,pinggy:** glance and activity lines: the tunnel's public address and its bytes of the last minute (881f82f)
+
+---
 
 ## @syncbridge/ngrok@2.1.1 (2026-10-31)
 

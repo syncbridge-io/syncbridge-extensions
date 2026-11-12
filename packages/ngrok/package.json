@@ -1,6 +1,6 @@
 {
   "name": "@syncbridge/ngrok",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "SyncBridge Ngrok component",
   "author": "Panates Technology AS <info@panates.com> (https://www.panates.com)",
   "homepage": "https://github.com/syncbridge-io/syncbridge-extensions/tree/main/packages/ngrok#readme",

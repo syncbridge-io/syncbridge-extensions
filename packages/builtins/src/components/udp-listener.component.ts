@@ -23,6 +23,11 @@ export class UdpListenerComponent<
   @Component.UseVariables()
   declare values: UdpListenerVariables;
 
+  /** Where it listens: it connects to no one */
+  protected get _glanceText(): string | undefined {
+    return `${this.values.bindInterface || '0.0.0.0'}:${this.values.port}`;
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     this.on('values-updated', () =>

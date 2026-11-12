@@ -29,6 +29,10 @@ export class TcpServerComponent<
   @Component.UseVariables()
   declare values: TcpServerVariables;
 
+  protected get _glanceText(): string | undefined {
+    return `${this.values.bindInterface || '0.0.0.0'}:${this.values.port}`;
+  }
+
   protected async _init(): Promise<void> {
     await super._init();
     this._createServer();

@@ -2,6 +2,7 @@ import http from 'node:http';
 import https from 'node:https';
 import tls from 'node:tls';
 import { Component, LogChannel } from '@syncbridge/common';
+import { formatCount, PerMinute } from '../utils/activity.js';
 import { peerOf } from '../utils/peer-of.js';
 import {
   HttpServerProtocolVariables,
@@ -43,9 +44,39 @@ export class HttpServerComponent<
   })
   declare readonly communicationLog: LogChannel;
 
+  /* Requests, and those answered with a server error, in the last minute */
+  protected _requestsPerMinute!: PerMinute;
+  protected _failedPerMinute!: PerMinute;
+
   protected async _init(): Promise<void> {
+    this._requestsPerMinute = new PerMinute();
+    this._failedPerMinute = new PerMinute();
     await super._init();
     this._createServer();
+  }
+
+  protected get _glanceText(): string | undefined {
+    return (
+      (this.values.tls_enabled ? 'https' : 'http') +
+      `://${this.values.bindInterface || '0.0.0.0'}:${this.values.port}`
+    );
+  }
+
+  protected _clearActivity(): void {
+    super._clearActivity();
+    this._requestsPerMinute.clear();
+    this._failedPerMinute.clear();
+  }
+
+  /** Requests, not bytes: what an HTTP server is asked to do */
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    const failed = this._failedPerMinute.value;
+    this.setActivity(
+      `${formatCount(this._requestsPerMinute.value)} req/min` +
+        (failed ? ` · ${formatCount(failed)} 5xx` : ''),
+      failed ? 'warning' : undefined,
+    );
   }
 
   /** The server, made once: apps add their handlers to it */
@@ -81,20 +112,26 @@ export class HttpServerComponent<
       port: req.socket.remotePort,
     });
     const what = `${req.method} ${req.url}`;
+    this._requestsPerMinute.add();
+    this._renewActivity();
     this.communicationLog?.write({
       direction: 'in',
       event: 'request',
       message: what,
       details,
     });
-    res.once('finish', () =>
+    res.once('finish', () => {
+      if (res.statusCode >= 500) {
+        this._failedPerMinute.add();
+        this._renewActivity();
+      }
       this.communicationLog?.write({
         direction: 'out',
         event: 'response',
         message: `${res.statusCode} ${what} (${Date.now() - started} ms)`,
         details,
-      }),
-    );
+      });
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

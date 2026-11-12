@@ -5,6 +5,11 @@ import {
   LogChannel,
   UseDashboard,
 } from '@syncbridge/common';
+import {
+  formatBytes,
+  PerMinute,
+  renewWhileRunning,
+} from '../utils/activity.js';
 import { peerOf } from '../utils/peer-of.js';
 import { IoClientDashboard } from './io-client-base.dashboard.js';
 import { IoClientComponentVariables } from './io-client-base.variables.js';
@@ -50,11 +55,21 @@ export class IoClientBaseComponent<
   /* Totals since the worker started: a dashboard keeps nothing over a restart */
   protected _received!: number;
   protected _sent!: number;
+  /* Bytes in the last minute: the component's activity line */
+  protected _receivedPerMinute!: PerMinute;
+  protected _sentPerMinute!: PerMinute;
 
   protected async _init(): Promise<void> {
     await super._init();
     this._received = 0;
     this._sent = 0;
+    this._receivedPerMinute = new PerMinute();
+    this._sentPerMinute = new PerMinute();
+    renewWhileRunning(
+      this,
+      () => this._renewLines(),
+      () => this._clearActivity(),
+    );
     /* A component made outside an app factory has no channels nor dashboards */
     this.connection?.link.set('unknown', 'Not connected');
     this.connection?.received.set(0);
@@ -70,6 +85,8 @@ export class IoClientBaseComponent<
       this._received += bytes;
       this.connection?.received.set(this._received);
       this.connection?.traffic.count('received', bytes);
+      this._receivedPerMinute.add(bytes);
+      this._renewActivity();
     });
     this.on('transmit', (data, peer) => {
       this.communicationLog?.write({
@@ -81,6 +98,8 @@ export class IoClientBaseComponent<
       this._sent += bytes;
       this.connection?.sent.set(this._sent);
       this.connection?.traffic.count('sent', bytes);
+      this._sentPerMinute.add(bytes);
+      this._renewActivity();
     });
     this.on('connect', () => {
       this.communicationLog?.write({
@@ -113,6 +132,36 @@ export class IoClientBaseComponent<
    */
   get peerAddress(): string | undefined {
     return undefined;
+  }
+
+  /**
+   * What its glance shows: what it connects to by default. A component
+   * that listens, or says more of its link, gives its own.
+   */
+  protected get _glanceText(): string | undefined {
+    return this.peerAddress;
+  }
+
+  /** Its glance, as the values may have changed, and its activity */
+  protected _renewLines(): void {
+    this.setGlance(this._glanceText);
+    this._renewActivity();
+  }
+
+  /** The bytes of the last minute, each way */
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    this.setActivity(
+      `↓ ${formatBytes(this._receivedPerMinute.value)} ` +
+        `↑ ${formatBytes(this._sentPerMinute.value)} /min`,
+    );
+  }
+
+  /** Stopped: no activity, and its counts start again */
+  protected _clearActivity(): void {
+    this.setActivity(undefined);
+    this._receivedPerMinute.clear();
+    this._sentPerMinute.clear();
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

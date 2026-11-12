@@ -8,6 +8,8 @@ function createServer(values: Partial<TcpServerComponent.Variables>) {
   const component: any = Object.create(TcpServerComponent.prototype);
   component.values = { port: 0, ...values };
   component.components = {};
+  /* Its state as the engine keeps it; _start called alone leaves it stopped */
+  component._context = { status: 'stopped' };
   return component;
 }
 

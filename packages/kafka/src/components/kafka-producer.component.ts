@@ -4,7 +4,11 @@ import type {
   Serializers,
 } from '@platformatic/kafka';
 import { ProduceAcks, Producer } from '@platformatic/kafka';
-import { TcpClientComponent } from '@syncbridge/builtins';
+import {
+  PerMinute,
+  renewWhileRunning,
+  TcpClientComponent,
+} from '@syncbridge/builtins';
 import {
   Component,
   ComponentBase,
@@ -18,6 +22,7 @@ import {
   messageData,
   messageDetails,
 } from '../utils/communication.js';
+import { kafkaActivity, kafkaGlance } from '../utils/lines.js';
 import { KafkaDashboard } from './kafka.dashboard.js';
 import { KafkaSaslVariables } from './kafka-client.variables.js';
 import { KafkaProducerVariables } from './kafka-producer.variables.js';
@@ -57,11 +62,26 @@ export class KafkaProducerComponent<
 
   protected _errors!: number;
   protected _byTopic!: Map<string, number>;
+  /* The last minute's messages and failures: its activity line */
+  protected _perMinute!: Record<'messages' | 'failed', PerMinute>;
 
   protected async _init(): Promise<void> {
     await super._init();
     this._errors = 0;
     this._byTopic = new Map();
+    this._perMinute = { messages: new PerMinute(), failed: new PerMinute() };
+    renewWhileRunning(
+      this,
+      () => {
+        this.setGlance(kafkaGlance(this.values.connection?.brokers));
+        this._renewActivity();
+      },
+      () => {
+        this.setActivity(undefined);
+        this._perMinute.messages.clear();
+        this._perMinute.failed.clear();
+      },
+    );
     this.kafka?.link.set('unknown', 'Not connected');
     this.kafka?.errors.set(0);
     this.on('error', () => this.kafka?.errors.set(++this._errors));
@@ -203,6 +223,8 @@ export class KafkaProducerComponent<
       result = await this.producer.send(options);
     } catch (err) {
       this.kafka?.errors.set(++this._errors);
+      this._perMinute.failed.add();
+      this._renewActivity();
       throw err;
     }
     for (const message of options.messages) {
@@ -216,8 +238,21 @@ export class KafkaProducerComponent<
     return result;
   }
 
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    this.setActivity(
+      ...kafkaActivity(
+        this._perMinute.messages.value,
+        this._perMinute.failed.value,
+        'failed',
+      ),
+    );
+  }
+
   /** A message read or written: its rate, and its topic's bar */
   protected _count(topic: string | undefined) {
+    this._perMinute.messages.add();
+    this._renewActivity();
     if (!this.kafka) return;
     this.kafka.rate.count('messages');
     if (!topic) return;

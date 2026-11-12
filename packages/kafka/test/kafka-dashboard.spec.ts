@@ -92,4 +92,35 @@ describe('Kafka dashboard', () => {
       value: { status: 'error', text: 'Kafka broker failed' },
     });
   });
+
+  it("should show a client's brokers and topics, and its messages of the last minute", async () => {
+    const app = await createApp();
+    const { consumer, producer } = app;
+    /* Running, as far as its lines go: no broker is reached */
+    (consumer as any).setStatus('started');
+    (producer as any).setStatus('started');
+    expect(consumer.glance).toEqual({ text: '127.0.0.1:1 · orders' });
+    expect(producer.glance).toEqual({ text: '127.0.0.1:1' });
+
+    const stream = new EventEmitter();
+    (consumer.consumer as any).consume = async () => stream;
+    await (consumer as any)._startConsumer();
+    stream.emit('data', { topic: 'orders', partition: 0, offset: 1n });
+    stream.emit('data', { topic: 'orders', partition: 0, offset: 2n });
+    await new Promise(setImmediate);
+    expect(consumer.activity).toEqual({ text: '2 msg/min' });
+
+    (producer.producer as any).send = async () => {
+      throw new Error('No leader');
+    };
+    await expect(
+      producer.send({ messages: [{ topic: 'x', value: Buffer.from('1') }] }),
+    ).rejects.toThrow();
+    expect(producer.activity).toEqual({
+      text: '0 msg/min · 1 failed',
+      tone: 'warning',
+    });
+    (consumer as any).setStatus('stopped');
+    expect(consumer.activity).toBeUndefined();
+  });
 });

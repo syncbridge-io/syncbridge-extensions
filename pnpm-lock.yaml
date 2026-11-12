@@ -218,8 +218,8 @@ importers:
         specifier: workspace:*
         version: link:packages/sqb
       '@syncbridge/syncbuild':
-        specifier: ^2.17.0
-        version: 2.17.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)
+        specifier: ^2.17.1
+        version: 2.17.1(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)
       '@syncbridge/testing':
         specifier: ^2.6.0
         version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
@@ -1626,18 +1626,18 @@ packages:
     resolution: {integrity: sha512-UTojxoNnzo36FuS0l/PRg/U/x/ESkIW0FoEtx/ViNl3oFjf4VLWtcmXbbooercfvd1oQ/ISb28eLkfeD+1sBdA==}
     engines: {node: '>=22.12.0'}
 
-  '@syncbridge/runtime@2.10.0':
-    resolution: {integrity: sha512-hsmDg14uHt0+qcgCQyclNWUu4fKO/8hWhOCSU2x8DmgxoOLnJ+ah6gXQbUa5aY5fbTU7hRtTcI7Gm5V8y475+w==}
+  '@syncbridge/runtime@2.11.0':
+    resolution: {integrity: sha512-wKcKk1Dvmf354DLl6S0DHvVO8Y2+1rSOj69Y+biK0CEArZzdP3aoocOkyYFIOf6FPKKau3ENmDbHQIEAnlf/FA==}
     engines: {node: '>=22.15'}
     peerDependencies:
       '@syncbridge/common': ^2.24.0
 
-  '@syncbridge/syncbuild@2.17.0':
-    resolution: {integrity: sha512-1ItUD+O7E+LPIJgYyGODB6AO/VQAcFlCQmI1gBIPQ7l85yyyqLfh0myVG3aKKuqZ1as4Yeqpf0gYGl5iuWbJWQ==}
+  '@syncbridge/syncbuild@2.17.1':
+    resolution: {integrity: sha512-vlsLePRVrGEuI97l+t3ks+QLaSPcr2weTmVkx4PebQbr5DllVH2DNcHHo2M6JZ4QjP3ZSiNyA/WRCmedpCmq9A==}
     engines: {node: '>=22.15'}
     hasBin: true
     peerDependencies:
-      '@syncbridge/common': ^2.23.0
+      '@syncbridge/common': ^2.24.0
 
   '@syncbridge/testing@2.6.0':
     resolution: {integrity: sha512-2A4olGlNg6ngTko/tbYb7szfeWD9YkscMNFwvFcNv6hRGKnCpCmPrxI2zUSWL0ZbDFFsjNkZSqQvXxVQBMWH3w==}
@@ -4518,7 +4518,7 @@ snapshots:
 
   '@syncbridge/pnpm-config@1.0.0': {}
 
-  '@syncbridge/runtime@2.10.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))':
+  '@syncbridge/runtime@2.11.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))':
     dependencies:
       '@jsopen/objects': 2.3.4
       '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
@@ -4526,12 +4526,12 @@ snapshots:
       jsonc-parser: 3.3.1
       semver: 7.8.6
 
-  '@syncbridge/syncbuild@2.17.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)':
+  '@syncbridge/syncbuild@2.17.1(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)':
     dependencies:
       '@jsopen/objects': 2.3.4
       '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
       '@syncbridge/pnpm-config': 1.0.0
-      '@syncbridge/runtime': 2.10.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+      '@syncbridge/runtime': 2.11.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
       adm-zip: 0.6.1
       ansi-colors: 4.1.3
       commander: 15.1.0

@@ -1,6 +1,11 @@
 import { clearTimeout } from 'node:timers';
 import { SqbClient, SQBError } from '@sqb/connect';
 import {
+  formatCount,
+  PerMinute,
+  renewWhileRunning,
+} from '@syncbridge/builtins';
+import {
   Component,
   ComponentBase,
   LogChannel,
@@ -68,10 +73,20 @@ export class SqbClientComponent<
 
   protected _errors!: number;
   protected _inUse!: number;
+  /* The last minute's queries and errors: its activity line */
+  protected _perMinute!: Record<'queries' | 'errors', PerMinute>;
 
   protected async _init(): Promise<void> {
     await super._init();
     this._errors = 0;
+    renewWhileRunning(
+      this,
+      () => {
+        this.setGlance(this._glanceText);
+        this._renewActivity();
+      },
+      () => this.setActivity(undefined),
+    );
     this.database?.link.set('unknown', 'Not connected');
     this.database?.errors.set(0);
     await this._createClient();
@@ -101,6 +116,8 @@ export class SqbClientComponent<
     });
     this.client = client;
     this._inUse = 0;
+    /* A new client counts again, as its pool is new */
+    this._perMinute = { queries: new PerMinute(), errors: new PerMinute() };
     this.database?.inUse.set(0);
     client.on('error', (err: Error) => {
       if (err instanceof SQBError && this.logger?.level === 'debug') {
@@ -134,10 +151,14 @@ export class SqbClientComponent<
         fields: request.params ? { params: request.params } : undefined,
       });
       this.database?.rate.count('queries');
+      this._perMinute.queries.add();
+      this._renewActivity();
     });
     client.on('error', (err: Error) => {
       this.database?.errors.set(++this._errors);
       this.database?.rate.count('errors');
+      this._perMinute.errors.add();
+      this._renewActivity();
       this.queriesLog?.write({
         level: 'error',
         event: 'error',
@@ -153,10 +174,14 @@ export class SqbClientComponent<
     });
     client.on('acquire', async () => {
       this._resetLiveness();
-      if (client === this.client) this.database?.inUse.set(++this._inUse);
+      if (client !== this.client) return;
+      this.database?.inUse.set(++this._inUse);
+      this._renewActivity();
     });
     client.on('connection-return', async () => {
-      if (client === this.client) this.database?.inUse.set(--this._inUse);
+      if (client !== this.client) return;
+      this.database?.inUse.set(--this._inUse);
+      this._renewActivity();
     });
   }
 
@@ -177,6 +202,36 @@ export class SqbClientComponent<
   protected async _terminate(): Promise<void> {
     clearTimeout(this._livenessTimer);
     await this.client.close(0);
+  }
+
+  /** Its database: the dialect, and where - never who connects */
+  protected get _glanceText(): string {
+    const { dialect, host, port, database } = this.values;
+    const where = host
+      ? `${host}${port ? `:${port}` : ''}${database ? `/${database}` : ''}`
+      : database;
+    return where ? `${dialect} · ${where}` : dialect;
+  }
+
+  /**
+   * Its pool, its queries of the last minute, and in warning the requests
+   * waiting for a connection and the errors
+   */
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    const waiting = this.client?.pool?.pending ?? 0;
+    const errors = this._perMinute.errors.value;
+    const max = this.values.pool?.max;
+    const parts = [
+      `pool ${this._inUse}${max ? `/${max}` : ''}`,
+      `${formatCount(this._perMinute.queries.value)} queries/min`,
+      waiting && `${formatCount(waiting)} waiting`,
+      errors && `${formatCount(errors)} ${errors === 1 ? 'error' : 'errors'}`,
+    ];
+    this.setActivity(
+      parts.filter(Boolean).join(' · '),
+      waiting || errors ? 'warning' : undefined,
+    );
   }
 
   getClient() {

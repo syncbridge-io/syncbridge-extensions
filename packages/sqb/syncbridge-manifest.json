@@ -1,3 +1,6 @@
 {
-  "name": "@syncbridge/sqb"
+  "name": "@syncbridge/sqb",
+  "dependencies": {
+    "@syncbridge/builtins": "workspace:^"
+  }
 }

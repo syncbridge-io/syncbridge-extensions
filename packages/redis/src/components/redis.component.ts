@@ -1,4 +1,9 @@
-import { IoClientBaseComponent } from '@syncbridge/builtins';
+import {
+  formatCount,
+  IoClientBaseComponent,
+  PerMinute,
+  renewWhileRunning,
+} from '@syncbridge/builtins';
 import {
   Component,
   ComponentBase,
@@ -41,10 +46,25 @@ export class RedisComponent<
   declare readonly connection: RedisDashboard;
 
   protected _reconnects!: number;
+  /* The last minute's commands and failed ones: its activity line */
+  protected _perMinute!: Record<'commands' | 'failed', PerMinute>;
 
   protected async _init(): Promise<void> {
     await super._init();
     this._reconnects = 0;
+    this._perMinute = { commands: new PerMinute(), failed: new PerMinute() };
+    renewWhileRunning(
+      this,
+      () => {
+        this.setGlance(this._glanceText);
+        this._renewActivity();
+      },
+      () => {
+        this.setActivity(undefined);
+        this._perMinute.commands.clear();
+        this._perMinute.failed.clear();
+      },
+    );
     this.connection?.link.set('unknown', 'Not connected');
     this.connection?.reconnects.set(0);
     const note = (event: string, message: string) =>
@@ -63,6 +83,42 @@ export class RedisComponent<
       this.connection?.link.set('warning', 'Connecting again');
       this.connection?.reconnects.set(++this._reconnects);
     });
+  }
+
+  /** What its glance shows: the server it connects to */
+  protected get _glanceText(): string | undefined {
+    return undefined;
+  }
+
+  /** Commands of the last minute, and in warning those that failed */
+  protected _renewActivity(): void {
+    if (this.stopped) return;
+    const failed = this._perMinute.failed.value;
+    this.setActivity(
+      `${formatCount(this._perMinute.commands.value)} commands/min` +
+        (failed ? ` · ${formatCount(failed)} failed` : ''),
+      failed ? 'warning' : undefined,
+    );
+  }
+
+  /**
+   * Counts the commands the apps send through the client, once it is
+   * ready: those of its own handshake are not theirs
+   */
+  protected _watchClient(client: ioredis.Redis): void {
+    const sendCommand = client.sendCommand;
+    client.sendCommand = ((command: ioredis.Command, stream?: any) => {
+      const result = sendCommand.call(client, command, stream);
+      if (client.status === 'ready') {
+        this._perMinute.commands.add();
+        command.promise.catch(() => {
+          this._perMinute.failed.add();
+          this._renewActivity();
+        });
+        this._renewActivity();
+      }
+      return result;
+    }) as typeof client.sendCommand;
   }
 
   get client(): ioredis.Redis | ioredis.Cluster {

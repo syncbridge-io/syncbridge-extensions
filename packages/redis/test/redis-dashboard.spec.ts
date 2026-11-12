@@ -44,4 +44,17 @@ describe('Redis dashboard', () => {
     });
     expect(env.dashboardIssues(app)).toEqual({});
   });
+
+  it('should show the server, and the commands of the last minute', async () => {
+    const app = await env.start(CacheApp, {
+      components: {
+        redis: { values: { host: '127.0.0.1', port: redis.port, db: 2 } },
+      },
+    });
+    expect(app.redis.glance).toEqual({ text: `127.0.0.1:${redis.port} db 2` });
+    expect(app.redis.activity).toEqual({ text: '0 commands/min' });
+    await app.redis.client.set('a', '1');
+    await app.redis.client.get('a');
+    expect(app.redis.activity).toEqual({ text: '2 commands/min' });
+  });
 });

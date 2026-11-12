@@ -1,6 +1,22 @@
 # Changelog
 
-<!-- rman:documented-up-to e407dbd51dfe30082288c1e7173b2d0a4d9830c6 -->
+<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+
+## v2026.11.12-1156 (2026-11-12)
+
+### ✨ Features
+
+- **sqb:** glance and activity lines: the database, the pool, queries of the last minute and errors (d7151dc)
+
+### 🧹 Chores
+
+- upgrade root tooling and lock hl7v2 2.3.2 (a1e9052)
+- take rman from the global install, not a devDependency (4c54fb4)
+- lock the in-range releases rman 2.43 lists (cb72ad3)
+- upgrade tooling and raise the modules' peer to common ^2.24.0 (5373c4f)
+- take syncbuild 2.17.1, whose spm verify runs the install scripts the workspace allows (959d630)
+
+---
 
 ## v2026.11.3-1541 (2026-11-03)
 

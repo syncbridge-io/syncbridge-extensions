@@ -22,7 +22,7 @@
     "tslib": "^2.9.1"
   },
   "peerDependencies": {
-    "@syncbridge/common": "^2.18.0",
+    "@syncbridge/common": "^2.24.0",
     "ansi-colors": ">=4.1.0 <5",
     "hl7v2": ">=2.3.0 <3",
     "hl7v2-net": ">=2.3.0 <3"

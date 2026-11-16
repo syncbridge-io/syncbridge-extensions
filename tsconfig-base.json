@@ -3,7 +3,10 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noEmit": false
+    "noEmit": false,
+    "composite": true,
+    "incremental": true,
+    "sourceMap": true
   },
   "references": [{ "path": "./packages/*" }]
 }

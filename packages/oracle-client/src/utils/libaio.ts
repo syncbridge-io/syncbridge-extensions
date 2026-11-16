@@ -1,15 +1,17 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-/* Where a distribution puts it; the architecture's directory included */
-const DIRECTORIES = [
-  '/lib',
-  '/lib64',
-  '/usr/lib',
-  '/usr/lib64',
+/* Where Debian and Ubuntu put it, the hosts SyncBridge is packaged for.
+ * The engine lets a plugin read /lib, /usr/lib and /usr/local/lib and
+ * what is below them; not /lib64 nor /usr/lib64 */
+export const LIBAIO_DIRECTORIES = [
   '/usr/lib/x86_64-linux-gnu',
   '/usr/lib/aarch64-linux-gnu',
+  '/lib/x86_64-linux-gnu',
+  '/lib/aarch64-linux-gnu',
+  '/usr/lib',
+  '/lib',
+  '/usr/local/lib',
 ];
 /* What Instant Client's libclntsh asks for */
 const SONAME = 'libaio.so.1';
@@ -27,32 +29,17 @@ export function findLibaio(): boolean | string {
   /* Only Linux links against it; elsewhere the client is not ours to judge */
   if (process.platform !== 'linux') return true;
   let t64: string | undefined;
-  for (const dir of DIRECTORIES) {
+  for (const dir of LIBAIO_DIRECTORIES) {
     if (readable(path.join(dir, SONAME))) return true;
     if (!t64 && readable(path.join(dir, T64))) t64 = path.join(dir, T64);
-  }
-  if (t64) return t64;
-  /* A distribution that keeps it elsewhere, or a plugin that may not look:
-   * the linker's own cache, as "libaio.so.1 (libc6,x86-64) => /path" */
-  let out: string;
-  try {
-    out = execFileSync('ldconfig', ['-p'], { encoding: 'utf8' });
-  } catch {
-    return false;
-  }
-  for (const line of out.split('\n')) {
-    const match = /^\s*(libaio\.so\.1(?:t64)?)\s.*=>\s*(\S+)/.exec(line);
-    if (match?.[1] === SONAME) return true;
-    if (match && !t64) t64 = match[2];
   }
   return t64 || false;
 }
 
 /**
- * Whether the file is there. Under the engine's permission model a plugin
- * may not look outside its data directory, and `existsSync` throws there
- * rather than answer: a path it may not read tells nothing, and `ldconfig`
- * is asked instead.
+ * Whether the file is there. Under the engine's permission model
+ * `existsSync` throws for a path the plugin may not read, rather than
+ * answer: such a path tells nothing.
  */
 function readable(file: string): boolean {
   try {
@@ -64,7 +51,7 @@ function readable(file: string): boolean {
 
 export const LIBAIO_MISSING =
   'libaio is not installed on this server, and Instant Client cannot load without it. ' +
-  'It belongs to the server, not to this plugin: install libaio1t64 (Ubuntu 24.04 and later), libaio1 (older Debian, Ubuntu) or libaio (RHEL, Alma, Rocky), or run SyncBridge from its Docker image, which carries it.';
+  'It belongs to the server, not to this plugin: install libaio1t64 (Ubuntu 24.04 and later) or libaio1 (older Debian, Ubuntu), or run SyncBridge from its Docker image, which carries it.';
 
 /** What to tell when the host has `libaio.so.1t64` alone, at `t64` */
 export function libaioT64Only(t64: string): string {

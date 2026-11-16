@@ -42,13 +42,9 @@ interface InstallRecord {
   description:
     "Downloads Oracle Instant Client, once an admin has accepted Oracle's license, and adds it to every worker's environment",
   settings: OracleClientSettings,
-  /* The client to the workers, Oracle's download, and `ldconfig` asked for
-   * libaio */
-  permissions: [
-    PluginPermission.WorkerEnvironment,
-    PluginPermission.Network,
-    PluginPermission.ChildProcesses,
-  ],
+  /* The client to the workers, and Oracle's download. libaio is looked for
+   * in the system's library directories, which the engine lets it read */
+  permissions: [PluginPermission.WorkerEnvironment, PluginPermission.Network],
   hosts: ['download.oracle.com'],
 })
 export class OracleClientPlugin extends PluginBase<OracleClientSettings> {

@@ -54,7 +54,7 @@ jobs:
         run: |
           rman check
           rman lint
-          pnpm exec tsc -b tsconfig-test.json --noEmit
+          pnpm typecheck
           rman build
           rman run test
 

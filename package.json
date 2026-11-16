@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "rman build",
-    "test": "tsc -b tsconfig-test.json --noEmit && mocha",
+    "test": "mocha",
+    "typecheck": "tsc -b tsconfig-test.json --noEmit",
     "precitest": "rman clean",
     "citest": "c8 mocha",
     "lint": "rman lint",

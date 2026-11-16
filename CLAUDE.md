@@ -99,7 +99,8 @@ its build is missing or stale:
 ```bash
 pnpm install
 node support/use-platform-builds.mjs
-pnpm test         # tsc -b tsconfig-test.json, then mocha (all modules)
+pnpm typecheck    # tsc -b tsconfig-test.json: every module's sources and tests
+pnpm test         # mocha, all modules (swc: it checks no types)
 rman run test     # each module: spm verify, then its tests (CI runs this)
 pnpm build        # rman build: each module into packages/<name>/build
 rman lint
@@ -107,10 +108,13 @@ rman check        # circular dependencies, package sanity
 pnpm exec prettier --check .
 ```
 
-Definition of done for a code change: `pnpm test`, `pnpm build`,
-`rman lint`, `rman check` and prettier all pass. `pnpm test` compiles every
-module from the root, so it does not show a module that fails to build on
-its own (CI's `rman build` does): `pnpm build` is what catches that.
+Definition of done for a code change: `pnpm typecheck`, `pnpm test`,
+`pnpm build`, `rman lint`, `rman check` and prettier all pass. Mocha runs
+the tests through swc, which checks no types: `pnpm typecheck` does, for
+the sources and the tests (`rman compile` checks each module's `src`
+alone). It compiles every module from the root, so it does not show a
+module that fails to build on its own (CI's `rman build` does): `pnpm
+build` is what catches that.
 
 ## How to work here
 

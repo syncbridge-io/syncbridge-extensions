@@ -191,8 +191,8 @@ importers:
         specifier: workspace:*
         version: link:packages/builtins
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       '@syncbridge/hl7':
         specifier: workspace:*
         version: link:packages/hl7
@@ -219,10 +219,10 @@ importers:
         version: link:packages/sqb
       '@syncbridge/syncbuild':
         specifier: ^2.17.1
-        version: 2.17.1(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)
+        version: 2.17.1(@syncbridge/common@2.25.0(@opra/common@1.33.0))(supports-color@8.1.1)
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       '@types/mocha':
         specifier: ^10.0.10
         version: 10.0.10
@@ -260,8 +260,8 @@ importers:
         specifier: ^2.3.4
         version: 2.3.4
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: ^4.1.3
         version: 4.1.3
@@ -283,7 +283,7 @@ importers:
     devDependencies:
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -291,8 +291,8 @@ importers:
   packages/hl7:
     dependencies:
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: '>=4.1.0 <5'
         version: 4.1.3
@@ -311,7 +311,7 @@ importers:
         version: link:../builtins
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -322,8 +322,8 @@ importers:
         specifier: '>=1.34.0 <3'
         version: 2.16.0(supports-color@8.1.1)
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       tslib:
         specifier: ^2.9.1
         version: 2.9.1
@@ -333,7 +333,7 @@ importers:
         version: link:../builtins
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -347,8 +347,8 @@ importers:
         specifier: '>=1.7.0 <2'
         version: 1.8.0
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: '>=4.1.3 <5'
         version: 4.1.3
@@ -370,10 +370,10 @@ importers:
     dependencies:
       '@syncbridge/common':
         specifier: ^2.13.1
-        version: 2.24.0(@opra/common@1.33.0)
+        version: 2.25.0(@opra/common@1.33.0)
       '@syncbridge/plugin-api':
         specifier: ^2.3.0
-        version: 2.3.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.3.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       adm-zip:
         specifier: ^0.6.1
         version: 0.6.1
@@ -397,8 +397,8 @@ importers:
         specifier: '>=0.5.3 <0.6'
         version: 0.5.4(supports-color@8.1.1)
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: '>=4.1.3 <5'
         version: 4.1.3
@@ -419,8 +419,8 @@ importers:
         specifier: '>=2.3.4 <3'
         version: 2.3.4
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ioredis:
         specifier: '>=6.0.0 <7'
         version: 6.0.0(supports-color@8.1.1)
@@ -433,7 +433,7 @@ importers:
         version: link:../builtins
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -444,8 +444,8 @@ importers:
         specifier: '>=1.2.2 <2'
         version: 1.2.2
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: '>=4.1.3 <5'
         version: 4.1.3
@@ -467,7 +467,7 @@ importers:
         version: link:../builtins
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -499,8 +499,8 @@ importers:
         specifier: '>=6.3.1 <7'
         version: 6.3.5(@sqb/builder@6.3.5(supports-color@8.1.1))(@sqb/connect@6.3.5(@sqb/builder@6.3.5(supports-color@8.1.1))(reflect-metadata@0.2.2)(supports-color@8.1.1))(@sqb/sqlite-dialect@6.3.5(@sqb/builder@6.3.5(supports-color@8.1.1)))
       '@syncbridge/common':
-        specifier: ^2.24.0
-        version: 2.24.0(@opra/common@1.33.0)
+        specifier: ^2.25.0
+        version: 2.25.0(@opra/common@1.33.0)
       ansi-colors:
         specifier: '>=4.1.3 <5'
         version: 4.1.3
@@ -528,7 +528,7 @@ importers:
         version: link:../builtins
       '@syncbridge/testing':
         specifier: ^2.6.0
-        version: 2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+        version: 2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       expect:
         specifier: ^30.5.2
         version: 30.5.2
@@ -1613,8 +1613,8 @@ packages:
   '@swc/types@0.1.28':
     resolution: {integrity: sha512-V6Mnml8v09QALx6K0elJ7o9K/MkVDtW3t6L+7Ou/JcWtb3xwId2AH4FeOceySd2JaO87IMw4+6vSZxLm34LPbw==}
 
-  '@syncbridge/common@2.24.0':
-    resolution: {integrity: sha512-GefRL27PNeV9NPUwyx2yA+03a3SjJN4e0/QAa76svYMFzm1WHDTb03EAxirjn3KKWxUXxUs1PioEykOZeGclAA==}
+  '@syncbridge/common@2.25.0':
+    resolution: {integrity: sha512-gv5FIOkW7ycb9Ws5uYEdR8DJ1IYJToid+u3iCfhUQiVWyCD9/wffy9Rcrg/nyV88IxK3wBIbdxnlhEYMJdXn0A==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       '@opra/common': '>=1.17.1 <2'
@@ -3917,44 +3917,31 @@ snapshots:
       '@ngrok/ngrok-win32-ia32-msvc': 1.8.0
       '@ngrok/ngrok-win32-x64-msvc': 1.8.0
 
-  '@node-rs/crc32-android-arm-eabi@1.10.8':
-    optional: true
+  '@node-rs/crc32-android-arm-eabi@1.10.8': {}
 
-  '@node-rs/crc32-android-arm64@1.10.8':
-    optional: true
+  '@node-rs/crc32-android-arm64@1.10.8': {}
 
-  '@node-rs/crc32-darwin-arm64@1.10.8':
-    optional: true
+  '@node-rs/crc32-darwin-arm64@1.10.8': {}
 
-  '@node-rs/crc32-darwin-x64@1.10.8':
-    optional: true
+  '@node-rs/crc32-darwin-x64@1.10.8': {}
 
-  '@node-rs/crc32-freebsd-x64@1.10.8':
-    optional: true
+  '@node-rs/crc32-freebsd-x64@1.10.8': {}
 
-  '@node-rs/crc32-linux-arm-gnueabihf@1.10.8':
-    optional: true
+  '@node-rs/crc32-linux-arm-gnueabihf@1.10.8': {}
 
-  '@node-rs/crc32-linux-arm64-gnu@1.10.8':
-    optional: true
+  '@node-rs/crc32-linux-arm64-gnu@1.10.8': {}
 
-  '@node-rs/crc32-linux-arm64-musl@1.10.8':
-    optional: true
+  '@node-rs/crc32-linux-arm64-musl@1.10.8': {}
 
-  '@node-rs/crc32-linux-x64-gnu@1.10.8':
-    optional: true
+  '@node-rs/crc32-linux-x64-gnu@1.10.8': {}
 
-  '@node-rs/crc32-linux-x64-musl@1.10.8':
-    optional: true
+  '@node-rs/crc32-linux-x64-musl@1.10.8': {}
 
-  '@node-rs/crc32-win32-arm64-msvc@1.10.8':
-    optional: true
+  '@node-rs/crc32-win32-arm64-msvc@1.10.8': {}
 
-  '@node-rs/crc32-win32-ia32-msvc@1.10.8':
-    optional: true
+  '@node-rs/crc32-win32-ia32-msvc@1.10.8': {}
 
-  '@node-rs/crc32-win32-x64-msvc@1.10.8':
-    optional: true
+  '@node-rs/crc32-win32-x64-msvc@1.10.8': {}
 
   '@node-rs/crc32@1.10.8':
     optionalDependencies:
@@ -3971,7 +3958,6 @@ snapshots:
       '@node-rs/crc32-win32-arm64-msvc': 1.10.8
       '@node-rs/crc32-win32-ia32-msvc': 1.10.8
       '@node-rs/crc32-win32-x64-msvc': 1.10.8
-    optional: true
 
   '@node-rs/xxhash-android-arm-eabi@1.7.8':
     optional: true
@@ -4518,7 +4504,7 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@syncbridge/common@2.24.0(@opra/common@1.33.0)':
+  '@syncbridge/common@2.25.0(@opra/common@1.33.0)':
     dependencies:
       '@jsopen/objects': 2.3.4
       '@opra/common': 1.33.0
@@ -4530,28 +4516,28 @@ snapshots:
       ts-gems: 4.0.4
       valgen: 7.0.8
 
-  '@syncbridge/plugin-api@2.3.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))':
+  '@syncbridge/plugin-api@2.3.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))':
     dependencies:
-      '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
+      '@syncbridge/common': 2.25.0(@opra/common@1.33.0)
       reflect-metadata: 0.2.2
       ts-gems: 4.0.4
 
   '@syncbridge/pnpm-config@1.0.0': {}
 
-  '@syncbridge/runtime@2.11.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))':
+  '@syncbridge/runtime@2.11.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))':
     dependencies:
       '@jsopen/objects': 2.3.4
-      '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
+      '@syncbridge/common': 2.25.0(@opra/common@1.33.0)
       adm-zip: 0.6.1
       jsonc-parser: 3.3.1
       semver: 7.8.6
 
-  '@syncbridge/syncbuild@2.17.1(@syncbridge/common@2.24.0(@opra/common@1.33.0))(supports-color@8.1.1)':
+  '@syncbridge/syncbuild@2.17.1(@syncbridge/common@2.25.0(@opra/common@1.33.0))(supports-color@8.1.1)':
     dependencies:
       '@jsopen/objects': 2.3.4
-      '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
+      '@syncbridge/common': 2.25.0(@opra/common@1.33.0)
       '@syncbridge/pnpm-config': 1.0.0
-      '@syncbridge/runtime': 2.11.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))
+      '@syncbridge/runtime': 2.11.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))
       adm-zip: 0.6.1
       ansi-colors: 4.1.3
       commander: 15.1.0
@@ -4569,9 +4555,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@syncbridge/testing@2.6.0(@syncbridge/common@2.24.0(@opra/common@1.33.0))':
+  '@syncbridge/testing@2.6.0(@syncbridge/common@2.25.0(@opra/common@1.33.0))':
     dependencies:
-      '@syncbridge/common': 2.24.0(@opra/common@1.33.0)
+      '@syncbridge/common': 2.25.0(@opra/common@1.33.0)
       caller-callsite: 6.0.0
       reflect-metadata: 0.2.2
       ts-gems: 4.0.4
@@ -6187,7 +6173,6 @@ snapshots:
   protobufjs@8.8.1:
     dependencies:
       long: 5.3.2
-    optional: true
 
   punycode@2.3.1: {}
 

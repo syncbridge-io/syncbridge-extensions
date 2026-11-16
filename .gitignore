@@ -1,6 +1,6 @@
 # compiled output
-/node_modules
-**/node_modules
+node_modules
+build/
 packages/*/dist
 packages/*/build
 packages/*/.spm
@@ -10,18 +10,32 @@ packages/*/coverage
 *.tsbuildinfo
 *.log
 junit.xml
+logs
+/.nyc_output
 .DS_Store
-.claude
+# Claude Code: .claude/settings.json is shared and committed, these are local
+.claude/settings.local.json
+.claude/worktrees/
 graphify-out
 
 # IDEs and editors
-.idea
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 # environment variables
 .env
 .env.local
 .env.*.local
+.env.*
+!.env.example
 .platform

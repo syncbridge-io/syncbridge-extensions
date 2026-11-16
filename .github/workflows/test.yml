@@ -61,4 +61,12 @@ jobs:
       # Every module's tests once more from the root, under c8 (.c8rc.json):
       # the coverage of all modules in one table
       - name: Coverage
-        run: pnpm citest
+        run: pnpm run citest
+
+      # The coverage badge reads Coveralls. Until Coveralls knows the
+      # repository, a failed upload does not fail the tests
+      - name: Send coverage to Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on-error: false

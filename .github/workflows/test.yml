@@ -2,9 +2,10 @@ name: Test
 on:
   workflow_call:
   workflow_dispatch:
+  # Every push but to main, which gets its tests from release.yml
   push:
-    branches:
-      - dev
+    branches-ignore:
+      - main
     paths:
       - '.github/workflows/test.yml'
       - 'packages/**/*.ts'
@@ -17,6 +18,10 @@ on:
       - '.c8rc.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
+
+# This workflow only reads the repository
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

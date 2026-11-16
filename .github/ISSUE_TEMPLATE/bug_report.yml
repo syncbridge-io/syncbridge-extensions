@@ -1,0 +1,41 @@
+name: Bug report
+description: A module, app or component that does not work as it should
+labels: [bug]
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - '@syncbridge/builtins'
+        - '@syncbridge/hl7'
+        - '@syncbridge/kafka'
+        - '@syncbridge/redis'
+        - '@syncbridge/sqb'
+        - '@syncbridge/serialport'
+        - '@syncbridge/ngrok'
+        - '@syncbridge/pinggy'
+        - '@syncbridge/oracle-client'
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: The module's version and the SyncBridge engine's version
+      placeholder: '@syncbridge/hl7 2.3.0, engine 1.22.2'
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what happened instead. Leave out passwords, tokens and patient data.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The worker's log or the component's communication log around the problem
+      render: text

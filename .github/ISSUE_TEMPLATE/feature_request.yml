@@ -1,0 +1,18 @@
+name: Feature request
+description: A new component, app or setting, or a change to one
+labels: [enhancement]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: The module it belongs to, or "new module"
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What you need
+      description: The device, protocol or system, and what the module should do with it
+    validations:
+      required: true

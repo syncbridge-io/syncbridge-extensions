@@ -9,12 +9,18 @@
     "type": "git",
     "url": "git+https://github.com/syncbridge-io/syncbridge-extensions.git"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "build": "rman build",
-    "test": "tsc -b tsconfig-test.json --noEmit && mocha",
+    "test": "mocha",
+    "typecheck": "tsc -b tsconfig-test.json --noEmit",
+    "precitest": "rman clean",
     "citest": "c8 mocha",
     "lint": "rman lint",
-    "check": "rman check"
+    "check": "rman check",
+    "format": "rman format"
   },
   "devDependencies": {
     "@panates/eslint-config": "^2.4.0",
@@ -39,7 +45,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.6.6",
     "c8": "^12.0.0",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "expect": "^30.5.2",
     "globals": "^17.14.0",
     "mocha": "^12.0.3",

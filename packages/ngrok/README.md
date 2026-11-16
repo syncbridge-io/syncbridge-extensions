@@ -5,6 +5,14 @@ has one component that opens a local TCP server and an ngrok tunnel to it,
 so a device or a service on the internet can connect to the server behind a
 firewall or a NAT. The app reads what the remote side sends and writes back.
 
+[![CI Tests][ci-test-image]][ci-test-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
+[ci-test-image]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml/badge.svg
+[ci-test-url]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml
+[coveralls-image]: https://img.shields.io/coveralls/syncbridge-io/syncbridge-extensions/dev.svg
+[coveralls-url]: https://coveralls.io/r/syncbridge-io/syncbridge-extensions
+
 ## Components
 
 | Component        | Description                                                           |

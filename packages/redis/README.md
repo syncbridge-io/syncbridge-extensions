@@ -5,6 +5,14 @@ Redis client components for SyncBridge, built on
 connection (login, TLS, reconnection, status) and gives the app the ioredis
 client to run commands with.
 
+[![CI Tests][ci-test-image]][ci-test-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
+[ci-test-image]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml/badge.svg
+[ci-test-url]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml
+[coveralls-image]: https://img.shields.io/coveralls/syncbridge-io/syncbridge-extensions/dev.svg
+[coveralls-url]: https://coveralls.io/r/syncbridge-io/syncbridge-extensions
+
 ## Components
 
 | Component       | Description                                                    |

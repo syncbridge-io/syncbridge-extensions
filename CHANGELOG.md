@@ -1,6 +1,30 @@
 # Changelog
 
-<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+<!-- rman:documented-up-to d8ba495eb1a5dda2f7e3343646c84c1bef432780 -->
+
+## v2026.11.20-1134 (2026-11-20)
+
+### 🔧 Refactoring
+
+- the permission codes' new names (WorkerAddEnv, NetworkConnect, SerialPortConnect, NativeCodeExecute) (b7f82dc)
+
+### 🧹 Chores
+
+- code of conduct, security policy, issue templates and workflow permissions (4b19552)
+- engines.node, precitest and format scripts, and the tsconfig template settings (d9db7eb)
+- drop Renovate: Dependabot alerts and rman deps keep the dependencies current (05cb76e)
+- commit the shared Claude settings, and CI and coverage badges in the READMEs (3fbe9f4)
+- test runs mocha alone, typecheck checks the sources and tests (591e2f8)
+- eslint 10.15 and the in-range releases of hl7v2, ngrok, sqb and postgrejs (fa629e5)
+- lock @platformatic/kafka 2.16.0, inside kafka's range (72f5fc7)
+- @syncbridge/common 2.25.0, the modules' peer ^2.25.0 (48bccda)
+- @syncbridge/common 2.27 and plugin-api 2.6 peers (engine 1.23.0), syncbuild 2.18, and in-range releases of sqb, mssql, kafka and socks (0428b9d)
+
+### 💬 General Changes
+
+- Merge pull request #7 from syncbridge-io/dev (d8ba495)
+
+---
 
 ## v2026.11.12-1156 (2026-11-12)
 

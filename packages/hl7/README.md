@@ -6,6 +6,14 @@ HL7 server and exchanges messages with it. Parsing and framing are done by
 [hl7v2](https://www.npmjs.com/package/hl7v2) and
 [hl7v2-net](https://www.npmjs.com/package/hl7v2-net).
 
+[![CI Tests][ci-test-image]][ci-test-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
+[ci-test-image]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml/badge.svg
+[ci-test-url]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml
+[coveralls-image]: https://img.shields.io/coveralls/syncbridge-io/syncbridge-extensions/dev.svg
+[coveralls-url]: https://coveralls.io/r/syncbridge-io/syncbridge-extensions
+
 ## Components
 
 | Component   | Description                                                        |

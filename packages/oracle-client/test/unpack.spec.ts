@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import AdmZip from 'adm-zip';
 import { expect } from 'expect';
+import { findLibaio } from '../src/utils/libaio.js';
 import { unpackClient } from '../src/utils/unpack.js';
 import { addSymlink, clientZip } from './_support/zip-server.js';
 
@@ -96,9 +97,10 @@ describe('unpackClient', () => {
     expect(fs.existsSync(path.join(data, 'escaped.so'))).toBe(false);
   });
 
-  it('should unpack and ask for libaio under the permission model, its data directory alone given', () => {
-    /* As the engine runs a plugin: it reads and writes its data directory,
-     * the repository's code being read for the test to load it at all */
+  it('should unpack and find libaio under the permission model, with no other program to run', () => {
+    /* As the engine runs a plugin: it reads and writes its data directory
+     * and reads the system's library directories, the repository's code
+     * being read for the test to load it at all */
     const zip = write(clientZip());
     const target = path.join(data, 'instantclient');
     const tmp = path.join(base, 'tmp');
@@ -110,12 +112,14 @@ describe('unpackClient', () => {
         `--allow-fs-read=${repository}`,
         `--allow-fs-read=${data}`,
         `--allow-fs-write=${data}`,
+        ...['/lib', '/usr/lib', '/usr/local/lib'].map(
+          dir => `--allow-fs-read=${dir}`,
+        ),
         /* swc compiles the test's TypeScript into a cache of its own */
         `--allow-fs-read=${tmp}`,
         `--allow-fs-write=${tmp}`,
         '--allow-worker',
         '--allow-addons',
-        '--allow-child-process',
         '--no-warnings',
         '--import',
         '@swc-node/register/esm-register',
@@ -131,7 +135,8 @@ describe('unpackClient', () => {
     );
     const result = JSON.parse(out.trim().split('\n').at(-1)!);
     expect(result.unpacked).toBe(true);
-    expect(['boolean', 'string']).toContain(typeof result.libaio);
+    /* What it would find with every path readable: the directories are */
+    expect(result.libaio).toBe(findLibaio());
     expect(fs.existsSync(path.join(target, 'libclntsh.so'))).toBe(true);
   });
 });

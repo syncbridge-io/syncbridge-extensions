@@ -36,6 +36,8 @@ jobs:
         )
       )
     uses: ./.github/workflows/test.yml
+    permissions:
+      contents: read
 
   release:
     needs: [source, test]

@@ -14,7 +14,7 @@ import { NgrokTcpClientVariables } from './ngrok-tcp-client.variables.js';
   displayName: 'Ngrok TCP Client Tunnel',
   description: 'Tcp client tunnel for Ngrok (https://ngrok.com)',
   /* A worker may load native code only when told: the ngrok SDK is a native addon */
-  permissions: [WorkerPermission.NativeCode],
+  permissions: [WorkerPermission.NativeCodeExecute],
   summary:
     'Opens an ngrok TCP tunnel to the component, so a remote device can connect to it, and reads and writes its bytes.',
   tags: ['tcp', 'client', 'socket', 'connection', 'ngrok'],

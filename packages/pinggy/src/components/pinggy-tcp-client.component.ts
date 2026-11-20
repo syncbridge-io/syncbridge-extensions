@@ -14,7 +14,7 @@ import { PinggyTcpClientVariables } from './pinggy-tcp-client.variables.js';
   description:
     'A Tcp client component which creates a tunnel using Pinggy (https://pinggy.io)',
   /* A worker may load native code only when told: the Pinggy SDK is a native addon */
-  permissions: [WorkerPermission.NativeCode],
+  permissions: [WorkerPermission.NativeCodeExecute],
   summary:
     'Opens a Pinggy TCP tunnel to the component, so a remote device can connect to it, and reads and writes its bytes.',
   tags: ['tcp', 'client', 'socket', 'connection', 'pinggy', 'tunnel'],

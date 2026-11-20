@@ -3,6 +3,14 @@
 The open source modules of [SyncBridge](https://syncbridge.io): components and
 apps a SyncBridge server runs - and examples to build modules of your own.
 
+[![CI Tests][ci-test-image]][ci-test-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
+[ci-test-image]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml/badge.svg
+[ci-test-url]: https://github.com/syncbridge-io/syncbridge-extensions/actions/workflows/test.yml
+[coveralls-image]: https://img.shields.io/coveralls/syncbridge-io/syncbridge-extensions/dev.svg
+[coveralls-url]: https://coveralls.io/r/syncbridge-io/syncbridge-extensions
+
 | Module                                          | What it brings                                                                          |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [`@syncbridge/builtins`](packages/builtins)     | The IO bridge app, the base classes of client and server components, TCP clients and servers (TLS, SOCKS proxies), UDP clients and listeners, an HTTP server |

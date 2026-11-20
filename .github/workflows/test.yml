@@ -2,9 +2,10 @@ name: Test
 on:
   workflow_call:
   workflow_dispatch:
+  # Every push but to main, which gets its tests from release.yml
   push:
-    branches:
-      - dev
+    branches-ignore:
+      - main
     paths:
       - '.github/workflows/test.yml'
       - 'packages/**/*.ts'
@@ -17,6 +18,10 @@ on:
       - '.c8rc.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
+
+# This workflow only reads the repository
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -49,11 +54,19 @@ jobs:
         run: |
           rman check
           rman lint
-          pnpm exec tsc -b tsconfig-test.json --noEmit
+          pnpm typecheck
           rman build
           rman run test
 
       # Every module's tests once more from the root, under c8 (.c8rc.json):
       # the coverage of all modules in one table
       - name: Coverage
-        run: pnpm citest
+        run: pnpm run citest
+
+      # The coverage badge reads Coveralls. Until Coveralls knows the
+      # repository, a failed upload does not fail the tests
+      - name: Send coverage to Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on-error: false

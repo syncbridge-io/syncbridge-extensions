@@ -61,8 +61,10 @@ engine gives it that once an admin approves it on the plugin's card:
 - **Worker environment**: to add the client to every worker's environment.
   Without it the client is installed but no worker sees it.
 - **Network**, to `download.oracle.com` only: Oracle's download.
-- **Child processes**: `ldconfig`, asked whether the host has libaio when it
-  is not in the usual directories.
+
+It starts no other program. Whether the server has libaio, it sees in the
+system's library directories (`/lib`, `/usr/lib`, `/usr/local/lib`), which the
+engine lets every plugin read.
 
 It needs a SyncBridge built on `@syncbridge/plugin-api` 2.2 or newer, which
 is the first to grant permissions.
@@ -103,8 +105,8 @@ Instant Client links against `libaio.so.1`, which belongs to the server
 rather than to this plugin: SyncBridge's Docker image carries it, and its
 Linux package depends on it. On a host without it the plugin installs the
 client and then says that `libaio` is missing instead of giving the workers a
-client they cannot load - install `libaio1` (Debian, Ubuntu up to 22.04) or
-`libaio` (RHEL, Alma, Rocky) and restart the server.
+client they cannot load - install `libaio1` (Debian, Ubuntu up to 22.04) and
+restart the server.
 
 ### Ubuntu 24.04 and later
 

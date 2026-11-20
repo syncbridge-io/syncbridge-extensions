@@ -22,7 +22,10 @@ import {
   tags: ['serial', 'rs232', 'client', 'connection'],
   /* A worker runs as a user of its own: opening a port needs the first,
    * and the serialport package is a native addon */
-  permissions: [WorkerPermission.SerialPorts, WorkerPermission.NativeCode],
+  permissions: [
+    WorkerPermission.SerialPortConnect,
+    WorkerPermission.NativeCodeExecute,
+  ],
 })
 export class SerialClientComponent<
   TEvents extends SerialClientComponent.Events = SerialClientComponent.Events,

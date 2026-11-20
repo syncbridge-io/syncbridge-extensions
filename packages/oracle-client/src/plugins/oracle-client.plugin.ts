@@ -44,7 +44,7 @@ interface InstallRecord {
   settings: OracleClientSettings,
   /* The client to the workers, and Oracle's download. libaio is looked for
    * in the system's library directories, which the engine lets it read */
-  permissions: [PluginPermission.WorkerEnvironment, PluginPermission.Network],
+  permissions: [PluginPermission.WorkerAddEnv, PluginPermission.NetworkConnect],
   hosts: ['download.oracle.com'],
 })
 export class OracleClientPlugin extends PluginBase<OracleClientSettings> {

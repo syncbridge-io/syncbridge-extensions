@@ -1,6 +1,46 @@
 # Changelog
 
-<!-- rman:documented-up-to e407dbd51dfe30082288c1e7173b2d0a4d9830c6 -->
+<!-- rman:documented-up-to d8ba495eb1a5dda2f7e3343646c84c1bef432780 -->
+
+## v2026.11.20-1134 (2026-11-20)
+
+### 🔧 Refactoring
+
+- the permission codes' new names (WorkerAddEnv, NetworkConnect, SerialPortConnect, NativeCodeExecute) (b7f82dc)
+
+### 🧹 Chores
+
+- code of conduct, security policy, issue templates and workflow permissions (4b19552)
+- engines.node, precitest and format scripts, and the tsconfig template settings (d9db7eb)
+- drop Renovate: Dependabot alerts and rman deps keep the dependencies current (05cb76e)
+- commit the shared Claude settings, and CI and coverage badges in the READMEs (3fbe9f4)
+- test runs mocha alone, typecheck checks the sources and tests (591e2f8)
+- eslint 10.15 and the in-range releases of hl7v2, ngrok, sqb and postgrejs (fa629e5)
+- lock @platformatic/kafka 2.16.0, inside kafka's range (72f5fc7)
+- @syncbridge/common 2.25.0, the modules' peer ^2.25.0 (48bccda)
+- @syncbridge/common 2.27 and plugin-api 2.6 peers (engine 1.23.0), syncbuild 2.18, and in-range releases of sqb, mssql, kafka and socks (0428b9d)
+
+### 💬 General Changes
+
+- Merge pull request #7 from syncbridge-io/dev (d8ba495)
+
+---
+
+## v2026.11.12-1156 (2026-11-12)
+
+### ✨ Features
+
+- **sqb:** glance and activity lines: the database, the pool, queries of the last minute and errors (d7151dc)
+
+### 🧹 Chores
+
+- upgrade root tooling and lock hl7v2 2.3.2 (a1e9052)
+- take rman from the global install, not a devDependency (4c54fb4)
+- lock the in-range releases rman 2.43 lists (cb72ad3)
+- upgrade tooling and raise the modules' peer to common ^2.24.0 (5373c4f)
+- take syncbuild 2.17.1, whose spm verify runs the install scripts the workspace allows (959d630)
+
+---
 
 ## v2026.11.3-1541 (2026-11-03)
 

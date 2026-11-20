@@ -1,6 +1,14 @@
 # Changelog
 
-<!-- rman:documented-up-to e407dbd51dfe30082288c1e7173b2d0a4d9830c6 -->
+<!-- rman:documented-up-to d8ba495eb1a5dda2f7e3343646c84c1bef432780 -->
+
+## @syncbridge/oracle-client@1.1.4 (2026-11-20)
+
+### 🐛 Bug Fixes
+
+- **oracle-client:** find libaio in the library directories the engine lets plugins read, and drop ldconfig and the child processes permission (1999724)
+
+---
 
 ## @syncbridge/oracle-client@1.1.3 (2026-11-03)
 

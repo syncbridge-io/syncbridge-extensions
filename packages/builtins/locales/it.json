@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Cattura pacchetti",
+    "description": "Legge i frame di un'interfaccia di rete",
+    "summary": "Legge i frame di un'interfaccia di rete, come una porta mirror, come SyncBridge li cattura, e segnala ogni frame e datagramma UDP.",
+    "variables": {
+      "interface": {
+        "label": "Interfaccia",
+        "description": "L'interfaccia di rete da catturare, come la porta mirror di uno switch"
+      },
+      "filter": {
+        "label": "Filtro",
+        "description": "Quali frame catturare, come filtro BPF: \"udp port 24000\". Vuoto cattura ogni frame. Un amministratore approva l'interfaccia e questo filtro"
+      },
+      "promiscuous": {
+        "label": "Promiscua",
+        "description": "Cattura anche i frame diretti ad altre macchine, come li porta una porta mirror"
+      },
+      "snapLength": {
+        "label": "Lunghezza di cattura",
+        "description": "Byte conservati di ogni frame; il resto viene tagliato"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Cattura",
+        "widgets": {
+          "rate": {
+            "title": "Frame",
+            "unit": "/s",
+            "series": {
+              "frames": "Frame",
+              "datagrams": "Datagrammi UDP"
+            }
+          },
+          "truncated": {
+            "title": "Troncati"
+          },
+          "lastFrame": {
+            "title": "Ultimo frame"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "Crea un ponte tra due peer di I/O",

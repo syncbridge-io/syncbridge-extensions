@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Capture de paquets",
+    "description": "Lit les trames d'une interface réseau",
+    "summary": "Lit les trames d'une interface réseau, comme un port miroir, telles que SyncBridge les capture, et signale chaque trame et datagramme UDP.",
+    "variables": {
+      "interface": {
+        "label": "Interface",
+        "description": "L'interface réseau à capturer, comme le port miroir d'un switch"
+      },
+      "filter": {
+        "label": "Filtre",
+        "description": "Les trames à capturer, en filtre BPF : \"udp port 24000\". Vide capture toutes les trames. Un administrateur approuve l'interface et ce filtre"
+      },
+      "promiscuous": {
+        "label": "Promiscuité",
+        "description": "Capturer aussi les trames adressées à d'autres machines, comme un port miroir les porte"
+      },
+      "snapLength": {
+        "label": "Longueur de capture",
+        "description": "Octets gardés de chaque trame ; le reste est coupé"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Capture",
+        "widgets": {
+          "rate": {
+            "title": "Trames",
+            "unit": "/s",
+            "series": {
+              "frames": "Trames",
+              "datagrams": "Datagrammes UDP"
+            }
+          },
+          "truncated": {
+            "title": "Tronquées"
+          },
+          "lastFrame": {
+            "title": "Dernière trame"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "Crée un pont entre deux pairs d'E/S",

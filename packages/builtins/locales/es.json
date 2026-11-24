@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Captura de paquetes",
+    "description": "Lee las tramas de una interfaz de red",
+    "summary": "Lee las tramas de una interfaz de red, como un puerto espejo, tal como SyncBridge las captura, e informa cada trama y datagrama UDP.",
+    "variables": {
+      "interface": {
+        "label": "Interfaz",
+        "description": "La interfaz de red a capturar, como el puerto espejo de un switch"
+      },
+      "filter": {
+        "label": "Filtro",
+        "description": "Qué tramas capturar, como filtro BPF: \"udp port 24000\". Vacío captura todas. Un administrador aprueba la interfaz y este filtro"
+      },
+      "promiscuous": {
+        "label": "Promiscuo",
+        "description": "Capturar también las tramas dirigidas a otras máquinas, como las lleva un puerto espejo"
+      },
+      "snapLength": {
+        "label": "Longitud de captura",
+        "description": "Bytes que se guardan de cada trama; el resto se corta"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Captura",
+        "widgets": {
+          "rate": {
+            "title": "Tramas",
+            "unit": "/s",
+            "series": {
+              "frames": "Tramas",
+              "datagrams": "Datagramas UDP"
+            }
+          },
+          "truncated": {
+            "title": "Cortadas"
+          },
+          "lastFrame": {
+            "title": "Última trama"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "Crea un puente entre dos extremos de E/S",

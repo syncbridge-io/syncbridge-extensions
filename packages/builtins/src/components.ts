@@ -3,6 +3,8 @@ export * from './components/io-client-base.component.js';
 export * from './components/io-client-base.dashboard.js';
 export * from './components/io-server-base.component.js';
 export * from './components/io-server-base.dashboard.js';
+export * from './components/packet-capture.component.js';
+export * from './components/packet-capture.dashboard.js';
 export * from './components/tcp-client.component.js';
 export * from './components/tcp-server.component.js';
 export * from './components/udp-client.component.js';

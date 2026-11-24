@@ -21,10 +21,18 @@ A change of any setting restarts the component.
 | ----------- | ------------------------------ | ------------------------------------------------------------------- |
 | `listening` | `port: number`                 | The socket is bound.                                                |
 | `data`      | `data: Buffer, info`           | A datagram arrived. `info` has `address`, `port`, `family`, `size`. |
+| `datagram`  | `datagram: Datagram`           | The same datagram, as Packet Capture tells a captured one.          |
 | `transmit`  | `data: string \| Buffer, info` | `write()` sent a datagram. `info` has `address`, `port`, `size`.    |
 | `error`     | `error: Error`                 | The socket reported an error, such as a failed bind.                |
 
-`info` of both events has a `toString()` that returns `address:port`.
+`info` of `data` and `transmit` has a `toString()` that returns
+`address:port`.
+
+`Datagram` (from `@syncbridge/builtins`) is `{ time, srcIp, srcPort, dstIp,
+dstPort, payload }`: a component that takes it works with UDP Listener and
+Packet Capture alike. Node does not tell a datagram's destination, so `dstIp`
+is the address the listener binds, `0.0.0.0` when it listens on every
+interface.
 
 The component also emits `error` when the socket reports an error, such as a
 failed bind (`EADDRINUSE`) or a failure to join a multicast group. It never

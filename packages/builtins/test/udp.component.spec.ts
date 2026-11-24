@@ -52,6 +52,28 @@ describe('UdpListenerComponent', () => {
     expect(String(info)).toMatch(/^127\.0\.0\.1:\d+$/);
   });
 
+  it('should tell each datagram as Packet Capture does, for a component taking either', async () => {
+    component = create({ port: 0, bindInterface: '127.0.0.1' });
+    await component.init();
+    const listening = new Promise<number>(resolve =>
+      component.once('listening', resolve),
+    );
+    await component.start();
+    const port = await listening;
+    const received = new Promise<any>(resolve =>
+      component.once('datagram', resolve),
+    );
+    sender.send('as captured', port, '127.0.0.1');
+    expect(await received).toEqual({
+      time: expect.any(Date),
+      srcIp: '127.0.0.1',
+      srcPort: expect.any(Number),
+      dstIp: '127.0.0.1',
+      dstPort: port,
+      payload: Buffer.from('as captured'),
+    });
+  });
+
   it('should be unhealthy, not crash, when its port is taken', async () => {
     const taken = dgram.createSocket('udp4');
     await new Promise<void>(resolve => taken.bind(0, '127.0.0.1', resolve));

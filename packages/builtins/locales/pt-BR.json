@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Captura de pacotes",
+    "description": "Lê os quadros de uma interface de rede",
+    "summary": "Lê os quadros de uma interface de rede, como uma porta espelho, conforme o SyncBridge os captura, e informa cada quadro e datagrama UDP.",
+    "variables": {
+      "interface": {
+        "label": "Interface",
+        "description": "A interface de rede a capturar, como a porta espelho de um switch"
+      },
+      "filter": {
+        "label": "Filtro",
+        "description": "Quais quadros capturar, como filtro BPF: \"udp port 24000\". Vazio captura todos. Um administrador aprova a interface e este filtro"
+      },
+      "promiscuous": {
+        "label": "Promíscuo",
+        "description": "Capturar também quadros endereçados a outras máquinas, como uma porta espelho os carrega"
+      },
+      "snapLength": {
+        "label": "Tamanho de captura",
+        "description": "Bytes guardados de cada quadro; o resto é cortado"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Captura",
+        "widgets": {
+          "rate": {
+            "title": "Quadros",
+            "unit": "/s",
+            "series": {
+              "frames": "Quadros",
+              "datagrams": "Datagramas UDP"
+            }
+          },
+          "truncated": {
+            "title": "Cortados"
+          },
+          "lastFrame": {
+            "title": "Último quadro"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "Cria uma ponte entre dois pares de E/S",

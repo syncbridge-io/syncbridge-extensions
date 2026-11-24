@@ -1,6 +1,7 @@
 import { Buffer } from 'node:buffer';
 import dgram from 'node:dgram';
 import { Component, ServiceStatus } from '@syncbridge/common';
+import type { Datagram } from '../utils/datagram.js';
 import { IoClientBaseComponent } from './io-client-base.component.js';
 import { UdpListenerVariables } from './udp-listener.variables.js';
 
@@ -97,6 +98,18 @@ export class UdpListenerComponent<
         },
       };
       this.emit('data', msg, info2);
+      /* As Packet Capture tells a captured one, for a component taking
+       * either. Node tells no datagram's destination: dstIp is the
+       * address it listens on, 0.0.0.0 on every interface */
+      const local = this.socket.address();
+      this.emit('datagram', {
+        time: new Date(),
+        srcIp: info.address,
+        srcPort: info.port,
+        dstIp: local.address,
+        dstPort: local.port,
+        payload: msg,
+      });
     });
     this.socket.bind(this.values.port, this.values.bindInterface || '0.0.0.0');
   }
@@ -133,6 +146,8 @@ export class UdpListenerComponent<
 export namespace UdpListenerComponent {
   export interface Events extends IoClientBaseComponent.Events {
     data: [data: Buffer, info: dgram.RemoteInfo];
+    /** The same datagram, in the shape Packet Capture emits it */
+    datagram: [datagram: Datagram];
   }
 
   export const Variables = UdpListenerVariables;

@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Paket Yakalama",
+    "description": "Bir ağ arayüzünün frame'lerini okur",
+    "summary": "Bir ağ arayüzünün frame'lerini, örneğin bir mirror portu, SyncBridge'in yakaladığı gibi okur; her frame'i ve UDP datagramını bildirir.",
+    "variables": {
+      "interface": {
+        "label": "Arayüz",
+        "description": "Yakalanacak ağ arayüzü, örneğin bir switch'in port-mirror portu"
+      },
+      "filter": {
+        "label": "Filtre",
+        "description": "Hangi frame'lerin yakalanacağı, BPF filtresi olarak: \"udp port 24000\". Boşsa her frame yakalanır. Arayüzü ve bu filtreyi bir yönetici onaylar"
+      },
+      "promiscuous": {
+        "label": "Promiscuous",
+        "description": "Başka makinelere giden frame'leri de yakala; mirror port onları da taşır"
+      },
+      "snapLength": {
+        "label": "Snapshot uzunluğu",
+        "description": "Her frame'den saklanan bayt; gerisi kesilir"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Yakalama",
+        "widgets": {
+          "rate": {
+            "title": "Frame'ler",
+            "unit": "/sn",
+            "series": {
+              "frames": "Frame'ler",
+              "datagrams": "UDP datagramları"
+            }
+          },
+          "truncated": {
+            "title": "Kesilen"
+          },
+          "lastFrame": {
+            "title": "Son frame"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "İki IO ucu arasında köprü kurar",

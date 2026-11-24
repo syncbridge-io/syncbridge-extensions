@@ -411,6 +411,51 @@
       }
     }
   },
+  "PacketCapture": {
+    "@extends": "IoClient",
+    "displayName": "Paketmitschnitt",
+    "description": "Liest die Frames einer Netzwerkschnittstelle",
+    "summary": "Liest die Frames einer Netzwerkschnittstelle, etwa eines Mirror-Ports, wie SyncBridge sie mitschneidet, und meldet Frames und UDP-Datagramme.",
+    "variables": {
+      "interface": {
+        "label": "Schnittstelle",
+        "description": "Die mitzuschneidende Netzwerkschnittstelle, etwa der Mirror-Port eines Switches"
+      },
+      "filter": {
+        "label": "Filter",
+        "description": "Welche Frames mitgeschnitten werden, als BPF-Filter: \"udp port 24000\". Leer schneidet jeden Frame mit. Ein Administrator gibt Schnittstelle und diesen Filter frei"
+      },
+      "promiscuous": {
+        "label": "Promiscuous",
+        "description": "Auch Frames an andere Rechner mitschneiden, wie ein Mirror-Port sie trägt"
+      },
+      "snapLength": {
+        "label": "Snapshot-Länge",
+        "description": "Behaltene Bytes je Frame; der Rest wird abgeschnitten"
+      }
+    },
+    "dashboards": {
+      "capture": {
+        "title": "Mitschnitt",
+        "widgets": {
+          "rate": {
+            "title": "Frames",
+            "unit": "/s",
+            "series": {
+              "frames": "Frames",
+              "datagrams": "UDP-Datagramme"
+            }
+          },
+          "truncated": {
+            "title": "Abgeschnitten"
+          },
+          "lastFrame": {
+            "title": "Letzter Frame"
+          }
+        }
+      }
+    }
+  },
   "IOBridge": {
     "displayName": "IO Bridge",
     "description": "Erstellt eine Brücke zwischen zwei IO-Gegenstellen",

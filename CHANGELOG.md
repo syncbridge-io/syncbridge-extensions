@@ -1,6 +1,18 @@
 # Changelog
 
-<!-- rman:documented-up-to d8ba495eb1a5dda2f7e3343646c84c1bef432780 -->
+<!-- rman:documented-up-to ec7a763bfbc479a8ba0683fb181ece7a6f0dc331 -->
+
+## v2026.11.24-1305 (2026-11-24)
+
+### ✨ Features
+
+- **builtins:** Packet Capture, a network interface's frames and UDP datagrams as SyncBridge captures them (common ^2.29.0) (f6a5db0)
+
+### 🧹 Chores
+
+- lock the in-range releases of @platformatic/kafka, ioredis, sqb and mssql (a1862f2)
+
+---
 
 ## v2026.11.20-1134 (2026-11-20)
 

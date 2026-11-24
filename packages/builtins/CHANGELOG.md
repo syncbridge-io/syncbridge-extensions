@@ -1,7 +1,17 @@
 # Changelog
 
 
-<!-- rman:documented-up-to 807763c11854f1d09fab101003e720fc16f7fe3c -->
+<!-- rman:documented-up-to ec7a763bfbc479a8ba0683fb181ece7a6f0dc331 -->
+
+## @syncbridge/builtins@2.4.0 (2026-11-24)
+
+### ✨ Features
+
+- **builtins:** pcap stream parsing and UDP datagram decoding, for Packet Capture (8917b01)
+- **builtins:** UDP Listener emits datagram, in the shape Packet Capture will (b20f872)
+- **builtins:** Packet Capture, a network interface's frames and UDP datagrams as SyncBridge captures them (common ^2.29.0) (f6a5db0)
+
+---
 
 ## @syncbridge/builtins@2.3.0 (2026-11-12)
 

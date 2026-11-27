@@ -63,10 +63,9 @@ jobs:
       - name: Coverage
         run: pnpm run citest
 
-      # The coverage badge reads Coveralls. Until Coveralls knows the
-      # repository, a failed upload does not fail the tests
-      - name: Send coverage to Coveralls
-        uses: coverallsapp/github-action@v2
+      # release.yml sends this report to Coveralls under the release commit on main
+      - name: Keep the coverage report for the release
+        uses: actions/upload-artifact@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          fail-on-error: false
+          name: coverage
+          path: coverage/lcov.info

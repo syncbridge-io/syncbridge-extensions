@@ -139,6 +139,9 @@ build` is what catches that.
 - **Found a bug or something odd in passing?** Tell the user; don't fix it
   silently or route around it.
 - No backward-compatibility shims: prefer the clean solution.
+- **Handoff:** a note for the next session goes in
+  `.claude/local/handoff.md`, which git ignores: never in the repository's
+  own files, as the repository is public.
 
 ## Writing a module
 
